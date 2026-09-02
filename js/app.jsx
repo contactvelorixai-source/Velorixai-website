@@ -1,0 +1,22 @@
+const App=()=>React.createElement(React.Fragment,null,
+  React.createElement(Nav),
+  React.createElement(LeadModal),
+  React.createElement(Hero),
+  React.createElement(Problem),
+  React.createElement(Ecosystem),
+  React.createElement(Showcase),
+  React.createElement(Apps),
+  React.createElement(Automation),
+  React.createElement(Steps),
+  React.createElement(Audiences),
+  React.createElement(Founder),
+  React.createElement(VideoSection),
+  React.createElement(Annual),
+  React.createElement(Tokens),
+  React.createElement(Pricing),
+  React.createElement(Testimonials),
+  React.createElement(Faq),
+  React.createElement(FinalCta),
+  React.createElement(SiteFooter)
+);
+ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
