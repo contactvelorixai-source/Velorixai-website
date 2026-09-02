@@ -1,0 +1,7 @@
+/* Universal Sans (proprietary) is substituted with Inter; Geist Mono is the documented brand companion. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Geist+Mono:wght@400;500&display=swap");
+:root{
+  --font-display:"Inter","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Inter","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"Geist Mono","JetBrains Mono","IBM Plex Mono",ui-monospace,monospace;
+}

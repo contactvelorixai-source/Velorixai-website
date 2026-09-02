@@ -1,0 +1,38 @@
+:root{
+  /* Display ladder — weight 400 only, negative tracking */
+  --type-display-xl-size:96px;  --type-display-xl-line:96px;  --type-display-xl-track:-2.4px;
+  --type-display-lg-size:72px;  --type-display-lg-line:72px;  --type-display-lg-track:-1.8px;
+  --type-display-md-size:48px;  --type-display-md-line:48px;  --type-display-md-track:-1.2px;
+  --type-display-sm-size:32px;  --type-display-sm-line:36px;  --type-display-sm-track:-0.6px;
+  --type-display-xs-size:20px;  --type-display-xs-line:28px;  --type-display-xs-track:0px;
+
+  /* Body */
+  --type-body-lg-size:18px; --type-body-lg-line:28px;
+  --type-body-md-size:16px; --type-body-md-line:24px;
+  --type-body-sm-size:14px; --type-body-sm-line:20px;
+
+  /* Mono captions */
+  --type-caption-mono-size:14px;    --type-caption-mono-line:20px;    --type-caption-mono-track:1.4px;
+  --type-caption-mono-sm-size:12px; --type-caption-mono-sm-line:16px; --type-caption-mono-sm-track:1.2px;
+
+  /* Button */
+  --type-button-md-size:14px; --type-button-md-line:20px;
+
+  --font-weight-regular:400;
+}
+/* Utility classes mirroring the ladder */
+.vx-display-xl{font-family:var(--font-display);font-weight:400;font-size:var(--type-display-xl-size);line-height:var(--type-display-xl-line);letter-spacing:var(--type-display-xl-track)}
+.vx-display-lg{font-family:var(--font-display);font-weight:400;font-size:var(--type-display-lg-size);line-height:var(--type-display-lg-line);letter-spacing:var(--type-display-lg-track)}
+.vx-display-md{font-family:var(--font-display);font-weight:400;font-size:var(--type-display-md-size);line-height:var(--type-display-md-line);letter-spacing:var(--type-display-md-track)}
+.vx-display-sm{font-family:var(--font-display);font-weight:400;font-size:var(--type-display-sm-size);line-height:var(--type-display-sm-line);letter-spacing:var(--type-display-sm-track)}
+.vx-display-xs{font-family:var(--font-display);font-weight:400;font-size:var(--type-display-xs-size);line-height:var(--type-display-xs-line)}
+.vx-body-lg{font-family:var(--font-body);font-weight:400;font-size:var(--type-body-lg-size);line-height:var(--type-body-lg-line)}
+.vx-body-md{font-family:var(--font-body);font-weight:400;font-size:var(--type-body-md-size);line-height:var(--type-body-md-line)}
+.vx-body-sm{font-family:var(--font-body);font-weight:400;font-size:var(--type-body-sm-size);line-height:var(--type-body-sm-line)}
+.vx-caption-mono{font-family:var(--font-mono);font-weight:400;font-size:var(--type-caption-mono-size);line-height:var(--type-caption-mono-line);letter-spacing:var(--type-caption-mono-track);text-transform:uppercase}
+.vx-caption-mono-sm{font-family:var(--font-mono);font-weight:400;font-size:var(--type-caption-mono-sm-size);line-height:var(--type-caption-mono-sm-line);letter-spacing:var(--type-caption-mono-sm-track);text-transform:uppercase}
+@media (max-width:767px){
+  .vx-display-xl{font-size:48px;line-height:52px;letter-spacing:-1.2px}
+  .vx-display-lg{font-size:40px;line-height:44px;letter-spacing:-1px}
+  .vx-display-md{font-size:32px;line-height:36px;letter-spacing:-0.8px}
+}

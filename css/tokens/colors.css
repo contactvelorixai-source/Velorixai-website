@@ -1,0 +1,39 @@
+:root{
+  /* Brand & accent */
+  --color-primary:#ffffff;
+  --color-on-primary:#0a0a0a;
+  --color-accent-sunset:#ff7a17;
+  --color-accent-sunset-soft:#ffc285;
+  --color-accent-dusk:#7c3aed;
+  --color-accent-twilight:#c4b5fd;
+  --color-accent-breeze:#a0c3ec;
+  --color-accent-midnight:#0d1726;
+
+  /* Surface */
+  --color-canvas:#0a0a0a;
+  --color-canvas-soft:#1a1c20;
+  --color-canvas-card:#191919;
+  --color-canvas-mid:#363a3f;
+  --color-hairline:#212327;
+
+  /* Text */
+  --color-ink:#ffffff;
+  --color-ink-hover:#fafaf7;
+  --color-body:#dadbdf;
+  --color-body-mid:#7d8187;
+
+  /* Translucent white — the outline-pill border */
+  --border-translucent:rgba(255,255,255,0.25);
+  --border-translucent-strong:rgba(255,255,255,0.4);
+  --fill-translucent:rgba(255,255,255,0.06);
+
+  /* Semantic aliases */
+  --surface-page:var(--color-canvas);
+  --surface-card:var(--color-canvas-card);
+  --surface-raised:var(--color-canvas-soft);
+  --surface-nested:var(--color-canvas-mid);
+  --text-primary:var(--color-ink);
+  --text-body:var(--color-body);
+  --text-mute:var(--color-body-mid);
+  --border-hairline:var(--color-hairline);
+}

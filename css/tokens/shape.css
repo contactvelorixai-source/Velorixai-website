@@ -1,0 +1,12 @@
+:root{
+  --radius-none:0px;
+  --radius-sm:8px;
+  --radius-pill:9999px;
+  --radius-full:9999px;
+  --radius:var(--radius-sm);
+
+  --border-width:1px;
+  /* Elevation: the brand uses no shadows. Hairlines carry all depth. */
+  --elevation-0:none;
+  --elevation-1:none;
+}
