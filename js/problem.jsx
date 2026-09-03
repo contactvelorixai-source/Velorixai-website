@@ -49,9 +49,9 @@ function Converge(){
             <span aria-hidden="true" style={{position:"absolute",top:0,left:0,right:0,height:1,background:"linear-gradient(90deg,transparent,var(--c-cyan),var(--c-violet),transparent)"}}></span>
             <div style={{display:"flex",alignItems:"center",gap:12,justifyContent:"center"}}>
               <Tile size={40} accent="ai" radius={999}><span style={{fontFamily:"var(--font-mono)",fontSize:17,color:"#fff"}}>V</span></Tile>
-              <div className="vx-display-sm" style={{letterSpacing:"-0.6px"}}>VelorixAI</div>
+              <div className="vx-display-sm" style={{letterSpacing:"-0.6px",whiteSpace:"nowrap"}}>{window.SITE.brand.name}</div>
             </div>
-            <p className="vx-body-sm" style={{color:"var(--color-body)",margin:"var(--space-md) 0 var(--space-lg)"}}>One login. One dashboard. About 20 connected apps.</p>
+            <p className="vx-body-sm" style={{color:"var(--color-body)",margin:"var(--space-md) 0 var(--space-lg)"}}>One login. One dashboard. {window.SITE.apps.length}+ connected apps.</p>
             <div style={{display:"flex",gap:6,justifyContent:"center",flexWrap:"wrap"}}>
               {TOOLS.slice(0,6).map(([l,ic,acc])=><Tile key={l} icon={ic} size={30} accent={acc}/>)}
             </div>
@@ -73,7 +73,7 @@ function Problem(){
   return <React.Fragment>
     <Shell id="platform" label="Problem">
       <div className="split-2" style={{display:"grid",gridTemplateColumns:"1.05fr .95fr",gap:"clamp(32px,6vw,80px)",alignItems:"start"}}>
-        <Reveal><Head eyebrow="THE PROBLEM" title="Your business shouldn’t require 10 different tools." lead="Most coaches and agency owners lose weeks stitching together a website builder, a CRM, an email tool, a course platform and a scheduling app that refuse to talk to each other. VelorixAI replaces that entire stack with one connected system."/></Reveal>
+        <Reveal><Head eyebrow="THE PROBLEM" title="Your business shouldn’t require 10 different tools." lead="Most coaches and agency owners lose weeks stitching together a website builder, a CRM, an email tool, a course platform and a scheduling app that refuse to talk to each other. Velorix AI replaces that entire stack with one connected system."/></Reveal>
         <Reveal delay={120}>
           <p className="vx-body-lg" style={{color:"var(--color-ink)",margin:"0 0 var(--space-xl)"}}>Everything you need to sell, deliver and support your clients — live in a single login.</p>
           <ul style={{listStyle:"none",margin:0,padding:0,display:"grid",gap:"var(--space-md)"}}>

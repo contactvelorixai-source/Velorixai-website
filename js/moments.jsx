@@ -18,7 +18,7 @@ function Photo({id,placeholder,mask,radius=16,style,ratio,className="",grade="co
   return <div ref={wrapRef} className={className} style={{position:"relative",width:"100%",overflow:"hidden",borderRadius:mask?0:radius,...(ratio?{aspectRatio:ratio}:{height:"100%"}),...style}}>
     <div style={{position:"absolute",inset:0,transform:`scale(${scale})`,transformOrigin:"50% 40%",transition:REDUCED?"none":"transform 240ms linear",clipPath:mask||"none"}}>
       <image-slot id={id} placeholder={placeholder} shape={mask?"rect":"rounded"} radius={String(mask?0:radius)}
-        src={rec?PX(rec[0]):undefined} credit={rec?`Photo by ${rec[1]} on Pexels`:undefined} credit-href={rec?rec[2]:undefined} fit="cover"></image-slot>
+        src={(window.__resources&&window.__resources["photo-"+id])||(rec?PX(rec[0]):undefined)} credit={rec?`Photo by ${rec[1]} on Pexels`:undefined} credit-href={rec?rec[2]:undefined} fit="cover"></image-slot>
       {grade?<span aria-hidden="true" style={{position:"absolute",inset:0,pointerEvents:"none",background:grade==="warm"
         ?"linear-gradient(200deg, color-mix(in oklab, var(--c-gold) 16%, transparent), transparent 52%)"
         :"linear-gradient(200deg, color-mix(in oklab, var(--c-violet) 15%, transparent), transparent 46%), linear-gradient(20deg, color-mix(in oklab, var(--c-cyan) 12%, transparent), transparent 44%)"}}></span>:null}

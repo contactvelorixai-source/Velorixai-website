@@ -36,13 +36,14 @@ const EMPTY={name:"",email:"",phone:"",company:"",message:""};
 function LeadModal(){
   const [open,setOpen]=React.useState(false);
   const [state,setState]=React.useState("form");   /* form | sending | done */
+  const [cal,setCal]=React.useState("");
   const [vals,setVals]=React.useState(EMPTY);
   const [errs,setErrs]=React.useState({});
   const cardRef=React.useRef(null), lastFocus=React.useRef(null);
 
   React.useEffect(()=>{
     /* always opens EMPTY */
-    const openIt=()=>{lastFocus.current=document.activeElement;setVals(EMPTY);setErrs({});setState("form");setOpen(true)};
+    const openIt=()=>{lastFocus.current=document.activeElement;setVals(EMPTY);setErrs({});setCal("");setState("form");setOpen(true)};
     window.addEventListener(LEAD_EVENT,openIt);
     const click=e=>{
       const t=e.target.closest("[data-lead-cta],[data-book-cta],a.vx-cta,button.vx-cta");
@@ -92,22 +93,52 @@ function LeadModal(){
       return;
     }
     setState("sending");
-    setTimeout(()=>setState("done"),900);
+    /* --- Connect your CRM / email tool here ---------------------------------
+       Replace this setTimeout with a fetch() POST to your endpoint and call
+       setState("done") on success. Fields: name, email, phone, company, message.
+       ---------------------------------------------------------------------- */
+    setTimeout(()=>{
+      setState("done");
+      /* Hand straight off to the Cal.id availability view — no extra click.
+         The booking URL lives in site/config.js under links.booking. */
+      const S=window.SITE;
+      let url=S.links.booking;
+      try{
+        const u=new URL(S.links.booking);
+        u.searchParams.set("name",vals.name.trim());
+        u.searchParams.set("email",vals.email.trim());
+        u.searchParams.set("phone",vals.phone.trim());
+        if(vals.message)u.searchParams.set("notes",vals.message);
+        url=u.toString();
+      }catch(e){}
+      setCal(url);
+    },700);
   };
 
   if(!open)return null;
   const busy=state==="sending";
   return <div role="presentation" onMouseDown={e=>{if(e.target===e.currentTarget)close()}} style={{position:"fixed",inset:0,zIndex:200,display:"grid",placeItems:"center",padding:"var(--space-lg)",background:"rgba(8,8,10,.74)",backdropFilter:"blur(6px)",WebkitBackdropFilter:"blur(6px)",animation:REDUCED?"none":"vxFadeIn 220ms ease-out",overflowY:"auto"}}>
-    <div ref={cardRef} role="dialog" aria-modal="true" aria-labelledby="lf-title" style={{position:"relative",width:"min(540px,100%)",maxHeight:"92vh",overflowY:"auto",borderRadius:16,border:"1px solid var(--border-translucent)",background:"linear-gradient(168deg,#1c1e24,#101115)",boxShadow:"0 40px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.04)",padding:"clamp(22px,3.4vw,34px)",animation:REDUCED?"none":"vxModalIn 300ms cubic-bezier(.4,0,.2,1)"}}>
+    <div ref={cardRef} role="dialog" aria-modal="true" aria-labelledby="lf-title" style={{position:"relative",width:state==="done"?"min(920px,100%)":"min(540px,100%)",maxHeight:"92vh",overflowY:"auto",borderRadius:16,border:"1px solid var(--border-translucent)",background:"linear-gradient(168deg,#1c1e24,#101115)",boxShadow:"0 40px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.04)",padding:"clamp(22px,3.4vw,34px)",animation:REDUCED?"none":"vxModalIn 300ms cubic-bezier(.4,0,.2,1)"}}>
       <span aria-hidden="true" style={{position:"absolute",top:0,left:0,right:0,height:1,borderRadius:"16px 16px 0 0",background:"linear-gradient(90deg,transparent,var(--c-cyan),var(--c-violet),transparent)"}}></span>
       <button type="button" onClick={close} aria-label="Close the contact form" style={{position:"absolute",top:14,right:14,width:36,height:36,display:"grid",placeItems:"center",borderRadius:999,border:"1px solid var(--border-translucent)",background:"rgba(255,255,255,.04)",color:"var(--color-ink)",cursor:"pointer"}}><MIc name="x" size={16}/></button>
 
       {state==="done"
-        ? <div style={{display:"grid",gap:"var(--space-lg)",placeItems:"center",textAlign:"center",padding:"var(--space-xl) 0"}}>
-            <span style={{animation:REDUCED?"none":"vxPop 520ms cubic-bezier(.34,1.56,.64,1)"}}><Tile icon="check" size={64} accent="analytics" radius={999}/></span>
-            <h2 className="vx-display-sm" style={{margin:0}}>Thank You!</h2>
-            <p className="vx-body-md" style={{color:"var(--color-body)",margin:0,maxWidth:380}}>Your details have been received. We’ll contact you shortly.</p>
-            <button type="button" onClick={close} data-no-lead className="vx-cta" style={{border:"1px solid rgba(255,255,255,.22)",cursor:"pointer",font:"inherit",fontSize:14}}>CLOSE</button>
+        ? <div style={{display:"grid",gap:"var(--space-lg)"}}>
+            <div style={{display:"flex",alignItems:"center",gap:12,paddingRight:44}}>
+              <span style={{animation:REDUCED?"none":"vxPop 520ms cubic-bezier(.34,1.56,.64,1)",flexShrink:0}}><Tile icon="check" size={42} accent="analytics" radius={999}/></span>
+              <span style={{display:"grid",gap:3}}>
+                <h2 className="vx-display-xs" style={{margin:0,fontSize:20}}>Pick your time</h2>
+                <p className="vx-body-sm" style={{color:"var(--color-body-mid)",margin:0}}>Choose a slot below to confirm your free 30-minute demo.</p>
+              </span>
+            </div>
+            <div className="lf-cal" style={{position:"relative",borderRadius:12,overflow:"hidden",border:"1px solid var(--border-translucent)",background:"#fff",minHeight:520}}>
+              <span aria-hidden="true" className="lf-cal-load" style={{position:"absolute",inset:0,display:"grid",placeItems:"center",background:"linear-gradient(168deg,#1c1e24,#101115)",color:"var(--color-body-mid)",...mono,fontSize:11}}>LOADING AVAILABILITY…</span>
+              {cal?<iframe title="Book your demo" src={cal} loading="eager" style={{position:"relative",width:"100%",height:"min(70vh,620px)",border:"none",display:"block"}}></iframe>:null}
+            </div>
+            <div style={{display:"flex",gap:"var(--space-md)",alignItems:"center",flexWrap:"wrap"}}>
+              <a href={cal} target="_blank" rel="noopener" data-no-lead style={{...mono,fontSize:10,color:"var(--c-cyan)"}}>CALENDAR NOT LOADING? OPEN IT IN A NEW TAB</a>
+              <button type="button" onClick={close} data-no-lead style={{marginLeft:"auto",...mono,fontSize:10,background:"none",border:"none",color:"var(--color-body-mid)",cursor:"pointer"}}>CLOSE</button>
+            </div>
           </div>
         : <form onSubmit={submit} noValidate style={{display:"grid",gap:"var(--space-lg)"}}>
             <div style={{display:"grid",gap:"var(--space-md)",paddingRight:44}}>

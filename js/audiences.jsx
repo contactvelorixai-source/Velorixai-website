@@ -3,7 +3,7 @@ const {Icon:UI_,Eyebrow:UEy}=DS;
 /* Three steps — editorial, not three identical cards: a numbered rule-separated
    sequence with one photograph anchoring the middle beat. */
 const STEPS=[
-  ["Book your free 30-minute demo","A VelorixAI specialist walks you through the platform and builds a plan around your business — coaching, consulting, or agency.","phone-call","clients"],
+  ["Book your free 30-minute demo","A Velorix AI specialist walks you through the platform and builds a plan around your business — coaching, consulting, or agency.","phone-call","clients"],
   ["Set up in 2 hours","Your website, funnel, CRM, WhatsApp automation, calendar, and payments go live in one guided build session. No tech skills required.","zap","gold"],
   ["Grow on autopilot","Your marketing runs 24/7. Leads come in, get nurtured, and book calls while you focus on delivering results for your clients.","trending-up","analytics"],
 ];
@@ -14,7 +14,7 @@ function Steps(){
   return <Shell label="How it works">
     <div className="steps-wrap" style={{display:"grid",gridTemplateColumns:"1.15fr .85fr",gap:"clamp(32px,6vw,88px)",alignItems:"start"}}>
       <div>
-        <Reveal><Head eyebrow="FROM IDEA TO LIVE" title="Three steps to a running business" lead="VelorixAI is designed so any coach or solopreneur — with zero technical background — can go fully operational in a single session."/></Reveal>
+        <Reveal><Head eyebrow="FROM IDEA TO LIVE" title="Three steps to a running business" lead="Velorix AI is designed so any coach or solopreneur — with zero technical background — can go fully operational in a single session."/></Reveal>
         <div style={{marginTop:"clamp(28px,4vw,48px)"}}>
           {STEPS.map(([t,c,ic,acc],i)=>
             <Reveal key={t} delay={i*90} style={{display:"grid",gridTemplateColumns:"auto 1fr",gap:"clamp(18px,3vw,32px)",padding:"clamp(20px,3vw,30px) 0",borderTop:"1px solid var(--color-hairline)"}}>

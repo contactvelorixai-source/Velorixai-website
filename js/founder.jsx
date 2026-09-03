@@ -8,25 +8,25 @@ function Founder(){
       <div style={{position:"relative",transform:`translate3d(0,${-d*54}px,0)`,willChange:"transform"}}>
         <Aura accent="ai" size="120%" opacity={.55}/>
         <div className="vx-lift" style={{position:"relative",border:"1px solid var(--color-hairline)",borderRadius:12,overflow:"hidden",background:"linear-gradient(168deg,#1b1d22,#111216)"}}>
-          <img src="https://i.ibb.co/mrhgQGy3/photo-16.jpg" alt="Anis Ahmad, Founder of VelorixAI" loading="lazy" style={{display:"block",width:"100%",height:"auto"}}/>
+          <img src={(window.__resources&&window.__resources.founderPhoto)||"https://i.ibb.co/mrhgQGy3/photo-16.jpg"} alt={"Anis Ahmad, Founder of "+window.SITE.brand.name} loading="lazy" style={{display:"block",width:"100%",height:"auto"}}/>
           <span aria-hidden="true" style={{position:"absolute",left:0,right:0,top:0,height:"72%",background:"linear-gradient(180deg,color-mix(in oklab,var(--c-violet) 22%,transparent),transparent 70%)",pointerEvents:"none"}}></span>
           <div style={{padding:"var(--space-lg)",borderTop:"1px solid var(--color-hairline)",display:"flex",alignItems:"center",gap:12}}>
             <Tile size={34} accent="ai" radius={999}><span style={{fontFamily:"var(--font-mono)",fontSize:14,color:"#fff"}}>A</span></Tile>
             <span>
               <span className="vx-display-xs" style={{display:"block",fontSize:17}}>Anis Ahmad</span>
-              <span style={{...mono,fontSize:10,color:"var(--c-cyan)"}}>FOUNDER & CEO · VELORIXAI</span>
+              <span style={{...mono,fontSize:10,color:"var(--c-cyan)"}}>FOUNDER & CEO · {window.SITE.brand.nameCaps}</span>
             </span>
           </div>
         </div>
         <div style={{position:"absolute",right:"-8%",bottom:"-10%",width:"72%",transform:`translate3d(0,${-d*-30}px,0)`}}><Notice icon="rocket" label="Built for speed" text="Live in 2 hours" accent="gold"/></div>
       </div>
       <Reveal>
-        <FEy color="var(--c-violet-soft)">WHY WE BUILT VELORIXAI</FEy>
-        <h2 className="vx-display-md" style={{margin:"var(--space-lg) 0 var(--space-xl)",maxWidth:520,textWrap:"pretty"}}>Meet Anis Ahmad — the founder behind VelorixAI</h2>
+        <FEy color="var(--c-violet-soft)">WHY WE BUILT {window.SITE.brand.nameCaps}</FEy>
+        <h2 className="vx-display-md" style={{margin:"var(--space-lg) 0 var(--space-xl)",maxWidth:520,textWrap:"pretty"}}>Meet Anis Ahmad — the founder behind {window.SITE.brand.name}</h2>
         <div style={{display:"grid",gap:"var(--space-lg)",maxWidth:560}}>
           {["I spent years watching coaches and agency owners waste time and money. They'd juggle 5-6 tools, pay ₹20K+ monthly, and still lose leads because nothing talked to each other.",
             "One founder told me: \u201CI spend more time managing software than growing my business.\u201D That line changed everything.",
-            "The problem wasn't the tools — they just weren't built for people who move fast. So I built VelorixAI. One dashboard. Website + CRM + WhatsApp + Booking + Payments. All connected. Live in 2 hours.",
+            "The problem wasn't the tools — they just weren't built for people who move fast. So I built Velorix AI. One dashboard. Website + CRM + WhatsApp + Booking + Payments. All connected. Live in 2 hours.",
             "On your free demo, I'll show you exactly how it works for your business. No BS. Just results."].map((t,i)=>
             <p key={i} className="vx-body-md" style={{color:"var(--color-body)",margin:0}}>{t}</p>)}
         </div>
@@ -45,10 +45,10 @@ function VideoSection(){
       <div ref={ref} style={{position:"relative",transform:`translate3d(0,${-d*34}px,0)`,willChange:"transform"}}>
         <Aura accent="ai" size="80%" opacity={.6}/>
         <div className="vx-lift" style={{position:"relative",border:"1px solid var(--color-hairline)",borderRadius:12,overflow:"hidden",background:"linear-gradient(165deg,var(--deep-2),var(--deep))",aspectRatio:"16 / 9","--glow":"color-mix(in oklab, var(--c-violet) 60%, transparent)"}}>
-          <img src="https://i.ytimg.com/vi/Ol6ReFCvqeQ/hqdefault.jpg" alt="VelorixAI 2-hour build walkthrough" loading="lazy" referrerPolicy="no-referrer" style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",opacity:play?0:.5}}/>
+          <img src={(window.__resources&&window.__resources.ytThumb)||ytThumbUrl()} alt={window.SITE.brand.name+" 2-hour build walkthrough"} loading="lazy" referrerPolicy="no-referrer" style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",opacity:play?0:.5}}/>
           {play
-            ? <iframe title="VelorixAI walkthrough" src="https://www.youtube-nocookie.com/embed/Ol6ReFCvqeQ?autoplay=1&mute=1&playsinline=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen loading="lazy" style={{position:"absolute",inset:0,width:"100%",height:"100%",border:"none"}}></iframe>
-            : <button onClick={()=>setPlay(true)} aria-label="Play the VelorixAI walkthrough" style={{position:"absolute",inset:0,width:"100%",height:"100%",background:"radial-gradient(60% 60% at 50% 45%, color-mix(in oklab, var(--c-violet) 40%, transparent), rgba(10,10,10,.55) 72%)",border:"none",cursor:"pointer",display:"grid",placeItems:"center",gap:"var(--space-lg)"}}>
+            ? <iframe title={window.SITE.brand.name+" walkthrough"} src={ytEmbed()} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen loading="lazy" style={{position:"absolute",inset:0,width:"100%",height:"100%",border:"none"}}></iframe>
+            : <button onClick={()=>setPlay(true)} aria-label={"Play the "+window.SITE.brand.name+" walkthrough"} style={{position:"absolute",inset:0,width:"100%",height:"100%",background:"radial-gradient(60% 60% at 50% 45%, color-mix(in oklab, var(--c-violet) 40%, transparent), rgba(10,10,10,.55) 72%)",border:"none",cursor:"pointer",display:"grid",placeItems:"center",gap:"var(--space-lg)"}}>
                 <span style={{display:"grid",placeItems:"center",gap:14}}>
                   <Tile icon="play" size={78} accent="ai" radius={999}/>
                   <span style={{...mono,color:"#fff"}}>PLAY · 2-HOUR BUILD</span>
@@ -61,7 +61,7 @@ function VideoSection(){
               </span>)}
           </span>}
         </div>
-        <p className="vx-body-sm" style={{color:"var(--color-body-mid)",margin:"var(--space-md) 0 0"}}>Video not loading? <a href="https://www.youtube.com/watch?v=Ol6ReFCvqeQ" target="_blank" rel="noopener" style={{color:"var(--c-cyan)"}}>Watch it on YouTube</a>.</p>
+        <p className="vx-body-sm" style={{color:"var(--color-body-mid)",margin:"var(--space-md) 0 0"}}>Video not loading? <a href={ytWatch()} target="_blank" rel="noopener" style={{color:"var(--c-cyan)"}}>Watch it on YouTube</a>.</p>
       </div>
     </div>
   </Shell>;

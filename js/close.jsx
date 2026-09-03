@@ -1,18 +1,18 @@
 const {Icon:CI,Button:CB,Eyebrow:CEy}=DS;
 
 const TESTIMONIALS=[
-  ["Riya Malhotra","Fitness Coach, Pune | 8-12 clients/month","I was managing my coaching business across 7 different tools — Kajabi for courses, Calendly for bookings, a separate CRM, WhatsApp manually, Stripe for payments. I was losing leads because nothing talked to each other. After my VelorixAI demo, everything was live in 2 hours. My first automated WhatsApp sequence brought in 3 leads the next day. By week 2, I had my first paying client. This single platform has literally tripled my efficiency and cut my monthly subscriptions from ₹15,000 to ₹5,000."],
-  ["Aman Singh","Agency Owner, Jaipur | 15+ active clients","As an agency owner, I was drowning in tool management. My team was jumping between Pipedrive, email, scheduling apps, and invoicing software. It was chaos. Anis showed us how VelorixAI consolidates everything — our entire client pipeline, automated follow-ups, booking management, and billing — all in one place. We've cut our operational overhead by 40% and onboarded 5 new clients in the first month because we're actually responsive now. Best business decision we made this year."],
-  ["Priya Kapoor","Business Consultant, Indore | ₹2.5L+ monthly","I was a freelancer consultant with zero interest in tech. I thought I'd need to hire someone to build my funnel and CRM. The 2-hour setup call with VelorixAI was eye-opening — within hours, I had a professional website, a lead capture funnel, and WhatsApp automation running. No coding, no confusion. In 30 days, I went from ₹0 to ₹2.5L in revenue because my leads weren't falling through the cracks anymore. The system does what used to require a VA and three different software licenses."],
+  ["Riya Malhotra","Fitness Coach, Pune | 8-12 clients/month","I was managing my coaching business across 7 different tools — Kajabi for courses, Calendly for bookings, a separate CRM, WhatsApp manually, Stripe for payments. I was losing leads because nothing talked to each other. After my Velorix AI demo, everything was live in 2 hours. My first automated WhatsApp sequence brought in 3 leads the next day. By week 2, I had my first paying client. This single platform has literally tripled my efficiency and cut my monthly subscriptions from ₹15,000 to ₹5,000."],
+  ["Aman Singh","Agency Owner, Jaipur | 15+ active clients","As an agency owner, I was drowning in tool management. My team was jumping between Pipedrive, email, scheduling apps, and invoicing software. It was chaos. Anis showed us how Velorix AI consolidates everything — our entire client pipeline, automated follow-ups, booking management, and billing — all in one place. We've cut our operational overhead by 40% and onboarded 5 new clients in the first month because we're actually responsive now. Best business decision we made this year."],
+  ["Priya Kapoor","Business Consultant, Indore | ₹2.5L+ monthly","I was a freelancer consultant with zero interest in tech. I thought I'd need to hire someone to build my funnel and CRM. The 2-hour setup call with Velorix AI was eye-opening — within hours, I had a professional website, a lead capture funnel, and WhatsApp automation running. No coding, no confusion. In 30 days, I went from ₹0 to ₹2.5L in revenue because my leads weren't falling through the cracks anymore. The system does what used to require a VA and three different software licenses."],
 ];
 
 const FAQS=[
-  ["How much does VelorixAI cost?","Pricing depends on your plan — Signature (9 core apps, quarterly) or Prestige (20+ apps, annual). Our investment range is ₹25,900 to ₹85,900. We confirm exact pricing on your free demo call based on your niche, business size and the specific apps you need."],
-  ["Do I need any technical skills to use VelorixAI?","Not at all. The dashboard is built for coaches and agency owners with no coding or design background. Everything is drag-and-drop, and we guide you through the entire setup."],
-  ["How long is the demo?","The free demo session takes about 30 minutes. In that time, we'll walk you through exactly how VelorixAI replaces your entire tool stack and helps you launch faster."],
+  ["How much does Velorix AI cost?","Pricing depends on your plan — Prestige (8 current apps, quarterly) or Signature (16 current apps, annual). Our investment range is ₹25,900 to ₹85,900. We confirm exact pricing on your free demo call based on your niche, business size and the specific apps you need."],
+  ["Do I need any technical skills to use Velorix AI?","Not at all. The dashboard is built for coaches and agency owners with no coding or design background. Everything is drag-and-drop, and we guide you through the entire setup."],
+  ["How long is the demo?","The free demo session takes about 30 minutes. In that time, we'll walk you through exactly how Velorix AI replaces your entire tool stack and helps you launch faster."],
   ["Can I move my existing tools over?","Yes. Our team helps you migrate your contacts, content and offers during onboarding. We make sure nothing gets lost in the transition."],
   ["How fast can I actually launch?","Most clients go from idea to a live business in just 2 hours during our guided build session. Your website, funnel, CRM, WhatsApp automation, calendar, and payments can all go live in that single session."],
-  ["What if I'm not ready to commit?","The demo is completely free and no-obligation. You'll only be charged if you decide to move forward after seeing exactly how VelorixAI works for your business."],
+  ["What if I'm not ready to commit?","The demo is completely free and no-obligation. You'll only be charged if you decide to move forward after seeing exactly how Velorix AI works for your business."],
   ["What about my data and privacy?","Your data is 100% yours and secure with us. We follow strict privacy and security protocols. You can review our full Privacy Policy and Terms & Conditions before booking your demo."],
 ];
 
@@ -64,10 +64,10 @@ function FinalCta(){
     </div>
     <Reveal style={{position:"relative"}}>
       <CEy color="var(--color-body-mid)" style={{textAlign:"center"}}>BOOK A DEMO</CEy>
-      <h2 className="vx-display-lg" style={{margin:"var(--space-lg) auto",maxWidth:900,textWrap:"pretty"}}>You bring the expertise. VelorixAI builds the system.</h2>
+      <h2 className="vx-display-lg" style={{margin:"var(--space-lg) auto",maxWidth:900,textWrap:"pretty"}}>You bring the expertise. Velorix AI builds the system.</h2>
       <p className="vx-body-lg" style={{color:"var(--color-body)",maxWidth:600,margin:"0 auto var(--space-2xl)"}}>Launch faster, automate your growth and manage your business from one intelligent platform.</p>
       <div style={{display:"flex",gap:"var(--space-md)",justifyContent:"center",flexWrap:"wrap"}}>
-        <a href="mailto:contact.velorixai@gmail.com?subject=VelorixAI%20free%20demo" className="vx-cta">BOOK YOUR FREE DEMO</a>
+        <a href="mailto:contact.velorixai@gmail.com?subject=Velorix AI%20free%20demo" className="vx-cta">BOOK YOUR FREE DEMO</a>
         <CB href="#annual">CLAIM ANNUAL BONUS</CB>
       </div>
       <p style={{...mono,color:"var(--color-body-mid)",marginTop:"var(--space-xl)"}}>No cost, no obligation — just your time for 30 minutes.</p>
@@ -75,32 +75,4 @@ function FinalCta(){
   </Shell>;
 }
 
-function SiteFooter(){
-  const col=(h,items)=><div style={{display:"grid",gap:"var(--space-md)",alignContent:"start"}}>
-    <div style={{...mono,color:"var(--color-body-mid)"}}>{h}</div>
-    {items}
-  </div>;
-  const link=(l,h)=><a key={l} href={h} className="vx-body-sm" style={{color:"var(--color-body)",textDecoration:"none"}}>{l}</a>;
-  return <footer style={{background:"var(--color-canvas)",padding:"clamp(48px,7vw,88px) var(--space-xl) var(--space-2xl)"}}>
-    <div style={{maxWidth:"var(--container-max)",margin:"0 auto"}}>
-      <div className="foot-grid" style={{display:"grid",gridTemplateColumns:"1.4fr 1fr 1fr 1fr",gap:"clamp(28px,4vw,56px)"}}>
-        <div style={{display:"grid",gap:"var(--space-md)",alignContent:"start"}}>
-          <div style={{display:"flex",alignItems:"center",gap:10}}>
-            <Tile size={28} accent="ai" radius={999}><span style={{fontFamily:"var(--font-mono)",fontSize:12,color:"#fff"}}>V</span></Tile>
-            <span className="vx-display-xs">VelorixAI</span>
-          </div>
-          <p className="vx-body-sm" style={{color:"var(--color-body-mid)",margin:0,maxWidth:300}}>AI-powered business growth platform for coaches, consultants and agencies. Based in Bandia, Uttarakhand, India.</p>
-        </div>
-        {col("NAVIGATION",[["Platform","#platform"],["Solutions","#solutions"],["Features","#features"],["Pricing","#pricing"],["FAQ","#faq"]].map(([l,h])=>link(l,h)))}
-        {col("CONTACT",[<a key="m" href="mailto:contact.velorixai@gmail.com" className="vx-body-sm" style={{color:"var(--color-body)"}}>contact.velorixai@gmail.com</a>,<a key="w" href="https://wa.me/918218854770" className="vx-body-sm" style={{color:"var(--color-body)",textDecoration:"none"}}>WhatsApp: +91 8218854770</a>])}
-        {col("VIDEO",[<a key="v" href="https://youtube.com/shorts/Ol6ReFCvqeQ?feature=share" target="_blank" rel="noopener" className="vx-body-sm" style={{color:"var(--color-body)",textDecoration:"none"}}>VelorixAI video</a>,link("Privacy Policy","#"),link("Terms & Conditions","#"),link("Refund Policy","#")])}
-      </div>
-      <div style={{borderTop:"1px solid var(--color-hairline)",marginTop:"clamp(32px,5vw,56px)",paddingTop:"var(--space-xl)",display:"flex",justifyContent:"space-between",gap:"var(--space-lg)",flexWrap:"wrap"}}>
-        <span style={{...mono,fontSize:10,color:"var(--color-body-mid)"}}>© 2026 VelorixAI. All rights reserved.</span>
-        <span style={{...mono,fontSize:10,color:"var(--color-body-mid)"}}>contact.velorixai@gmail.com</span>
-      </div>
-    </div>
-  </footer>;
-}
-
-Object.assign(window,{Testimonials,Faq,FinalCta,SiteFooter,FAQS,TESTIMONIALS});
+Object.assign(window,{Testimonials,Faq,FinalCta,FAQS,TESTIMONIALS});

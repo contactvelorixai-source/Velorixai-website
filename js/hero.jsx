@@ -1,6 +1,6 @@
 const {Button:B,Icon:I,Eyebrow:Ey}=DS;
 
-/* ---------- the VelorixAI dashboard mock: sidebar + widgets, fully coloured ---------- */
+/* ---------- the Velorix AI dashboard mock: sidebar + widgets, fully coloured ---------- */
 const DASH_NAV=[["Dashboard","layout-dashboard","analytics"],["CRM","users","crm"],["Funnels","filter","funnel"],["Calendar","calendar","calendar"],["Email","mail","email"],["Website","globe","website"],["Payments","credit-card","payments"]];
 
 function DashboardMock({active=1,compact=false}){
@@ -13,7 +13,7 @@ function DashboardMock({active=1,compact=false}){
       {compact?null:<div style={{borderRight:"1px solid var(--color-hairline)",padding:"14px 12px",display:"grid",gap:6,alignContent:"start",background:"rgba(255,255,255,.015)"}}>
         <div style={{display:"flex",alignItems:"center",gap:8,padding:"2px 4px 12px"}}>
           <Tile size={24} accent="ai" radius={999}><span style={{fontFamily:"var(--font-mono)",fontSize:11,color:"#fff"}}>V</span></Tile>
-          <span style={{...mono,color:"var(--color-body)"}}>VELORIXAI</span>
+          <span style={{...mono,color:"var(--color-body)",whiteSpace:"nowrap"}}>{window.SITE.brand.nameCaps}</span>
         </div>
         {DASH_NAV.map(([l,ic,acc],i)=>
           <div key={l} style={{display:"flex",alignItems:"center",gap:9,padding:"7px 9px",borderRadius:8,background:i===active?"linear-gradient(90deg,rgba(255,255,255,.09),transparent)":"transparent"}}>
@@ -104,8 +104,8 @@ function Hero(){
           <B href="#how-it-works">SEE HOW IT WORKS</B>
         </div>
         <div style={{display:"flex",gap:"var(--space-xl)",flexWrap:"wrap",paddingTop:"var(--space-sm)",...enter(400)}}>
-          {[["About 20 apps in one dashboard","layout-grid","crm"],["Go live in about 2 hours","zap","gold"],["No tech team needed","shield-check","analytics"]].map(([t,ic,acc])=>
-            <span key={t} style={{display:"flex",alignItems:"center",gap:9,...mono,color:"var(--color-body)"}}><Tile icon={ic} size={24} accent={acc} glow={false}/>{t}</span>)}
+          {window.SITE.hero.points.map(([t,ic,acc])=>
+            <span key={t} style={{display:"flex",alignItems:"center",gap:9,...mono,color:"var(--color-body)"}}><Tile icon={ic} size={24} accent={acc} glow={false}/><span style={{whiteSpace:"nowrap"}}>{t}</span></span>)}
         </div>
       </div>
     </div>
