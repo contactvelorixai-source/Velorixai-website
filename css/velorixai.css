@@ -1,10 +1,9 @@
 /* ==========================================================================
-   VelorixAI — site stylesheet
-   Design tokens (colours, type, spacing) live in css/tokens/ and
-   css/design-system.css. Edit those to change the palette globally.
+   Velorix AI — site stylesheet
+   Design tokens live in css/tokens/ and css/design-system.css.
    ========================================================================== */
 
-/* ---------- BASE + GLOBAL UI (buttons, modal keyframes, focus states) ---------- */
+/* ---------- BASE + GLOBAL UI ---------- */
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--color-canvas);color:var(--color-ink);font-family:var(--font-body);overflow-x:clip}
 *{box-sizing:border-box}
@@ -64,8 +63,8 @@ a{color:var(--color-ink)}a:hover{color:var(--color-ink-hover)}
 }
 @media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
 
-/* ---------- SECTION LAYOUT, PHOTO SCENES, PRODUCT MOCKUPS, RESPONSIVE ---------- */
-/* VelorixAI site layer — colour, light and motion built on top of the design-system tokens.
+/* ---------- SECTIONS, PHOTO SCENES, PRODUCT MOCKUPS, RESPONSIVE ---------- */
+/* Velorix AI site layer — colour, light and motion built on top of the design-system tokens.
    Accent hues are derived from the DS accent palette (dusk, breeze, sunset, twilight) and
    extended in oklch so the family stays harmonious.
    Paint budget: no blend modes, no filters on repeated elements — the page carries 100+ tiles. */
@@ -159,4 +158,24 @@ image-slot{display:block;width:100%;height:100%}
 .hero-photo{pointer-events:none}
 .hero-photo image-slot,.eco-photo image-slot,.cta-photo image-slot{pointer-events:auto}
 @media (max-width:1180px){.hero-photo{position:relative!important;width:100%!important;height:auto!important;aspect-ratio:16/9;margin-top:var(--space-xl);opacity:1!important;transform:none!important}.hero-photo>span[aria-hidden]{display:none}.eco-photo,.cta-photo{display:none}}
+
+/* --- package tabs, plan app lists, upcoming apps --- */
+.app-tabs button{min-height:40px}
+.upcoming-grid{grid-template-columns:repeat(4,1fr)}
+@media (max-width:1180px){.upcoming-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.upcoming-grid{grid-template-columns:1fr}.plan-apps{grid-template-columns:1fr!important}}
+/* app counts and prices must never break across lines */
+.vx-nowrap,.price-range>div:nth-child(2){white-space:nowrap}
+.lf-cal iframe{position:relative;z-index:2}
+@media (max-width:640px){.lf-cal{min-height:460px}.lf-cal iframe{height:min(74vh,560px)!important}}
+
+/* --- global footer --- */
+.foot-link:hover{color:var(--color-ink)!important}
+.foot-legal-links a{white-space:nowrap}
+@media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr!important}}
+@media (max-width:600px){
+  .foot-grid{grid-template-columns:1fr!important}
+  .foot-legal{flex-direction:column;align-items:flex-start!important;gap:var(--space-md)!important}
+  .foot-legal-links{gap:var(--space-md)!important;row-gap:var(--space-sm)!important}
+}
 
