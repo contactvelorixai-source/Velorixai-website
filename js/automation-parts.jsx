@@ -4,7 +4,7 @@ const FLOW=[
   ["NEW LEAD","user-plus","clients","Form submitted · yourbrand.com"],
   ["AI QUALIFICATION","sparkles","ai","Intent scored · 87 / 100"],
   ["PERSONALIZED FOLLOW-UP","mail","email","Email drafted and sent"],
-  ["WHATSAPP MESSAGE","message-circle","whatsapp","“Hi Riya — here are 2 slots”"],
+  ["WHATSAPP MESSAGE","message-circle","whatsapp","“Hi Riya, here are 2 slots”"],
   ["CALL BOOKED","calendar-check","calendar","Tue 10:00 · confirmed"],
   ["CRM UPDATED","users","crm","Stage moved to Qualified"],
   ["CLIENT","handshake","gold","Invoice paid · onboarding started"],
@@ -18,7 +18,7 @@ function EventCard({i}){
   </div>;
   if(i===3) return <div style={{display:"grid",gap:8}}>
     <div style={{...mono,fontSize:10,color:"var(--color-body-mid)"}}>WHATSAPP</div>
-    <div className="vx-body-sm" style={{alignSelf:"start",padding:"9px 13px",borderRadius:"14px 14px 14px 4px",background:"linear-gradient(140deg,color-mix(in oklab,var(--c-teal) 32%,transparent),rgba(255,255,255,.05))",border:"1px solid var(--color-hairline)"}}>Hi Riya — here are 2 slots for your call.</div>
+    <div className="vx-body-sm" style={{alignSelf:"start",padding:"9px 13px",borderRadius:"14px 14px 14px 4px",background:"linear-gradient(140deg,color-mix(in oklab,var(--c-teal) 32%,transparent),rgba(255,255,255,.05))",border:"1px solid var(--color-hairline)"}}>Hi Riya, here are 2 slots for your call.</div>
     <div className="vx-body-sm" style={{alignSelf:"end",padding:"9px 13px",borderRadius:"14px 14px 4px 14px",background:"rgba(255,255,255,.07)",border:"1px solid var(--color-hairline)"}}>Tuesday 10:00 works.</div>
   </div>;
   if(i===4) return <div style={{display:"grid",gap:8}}>

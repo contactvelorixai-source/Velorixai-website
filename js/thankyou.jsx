@@ -1,5 +1,5 @@
 /* ============================================================================
-   THANK YOU PAGE — the step between the lead form and the Cal.id calendar.
+   THANK YOU PAGE, the step between the lead form and the Cal.id calendar.
    Reads the visitor's details from the query string and prefills the booking.
    ============================================================================ */
 const {Icon:TyI,Eyebrow:TyEy}=DS;
@@ -32,8 +32,8 @@ function ThankYou(){
       <h1 className="vx-display-lg" style={{margin:"0 0 var(--space-lg)",textWrap:"pretty"}}>{first?`Thanks, ${first}. Now pick your time.`:"Thank you. Now pick your time."}</h1>
       <p className="vx-body-lg" style={{color:"var(--color-body)",margin:"0 0 clamp(28px,4vw,44px)",maxWidth:620}}>Choose a slot below and your free 30-minute {S.brand.name} demo is confirmed. Your details are already filled in.</p>
 
-      {/* Cal.id availability — the visitor books here, no further click needed */}
-      <div className="ty-cal" style={{position:"relative",borderRadius:14,overflow:"hidden",border:"1px solid var(--border-translucent)",background:"linear-gradient(168deg,#1c1e24,#101115)",minHeight:560}}>
+      {/* Cal.id availability, the visitor books here, no further click needed */}
+      <div className="ty-cal" style={{position:"relative",borderRadius:14,overflow:"hidden",border:"1px solid var(--border-translucent)",background:"linear-gradient(168deg,#101C38,#080F20)",minHeight:560}}>
         <span aria-hidden="true" style={{position:"absolute",inset:0,display:"grid",placeItems:"center",color:"var(--color-body-mid)",...mono,fontSize:11}}>LOADING AVAILABILITY…</span>
         <iframe title="Book your demo" src={calUrl} loading="eager" style={{position:"relative",zIndex:2,width:"100%",height:"min(76vh,700px)",border:"none",display:"block"}}></iframe>
       </div>

@@ -9,6 +9,28 @@ function tick(){ticking=false;scrollSubs.forEach(f=>{try{f()}catch(e){}})}
 function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(tick)}}
 window.addEventListener("scroll",onScroll,{passive:true});
 window.addEventListener("resize",onScroll);
+
+/* Home / End / PageUp / PageDown. The browser only fires these on the document
+   when the document itself holds focus, which it does not when the page is
+   embedded or when focus sits in a control, so drive the scroll explicitly. */
+document.addEventListener("keydown",e=>{
+  if(e.defaultPrevented||e.metaKey||e.ctrlKey||e.altKey)return;
+  const t=e.target;
+  /* never hijack the keys while typing or inside a scrollable control */
+  if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)))return;
+  if(document.querySelector('[role="dialog"]'))return;
+  const el=document.scrollingElement||document.documentElement;
+  const max=el.scrollHeight-window.innerHeight;
+  const step=Math.round(window.innerHeight*0.9);
+  let to=null;
+  if(e.key==="Home")to=0;
+  else if(e.key==="End")to=max;
+  else if(e.key==="PageDown")to=Math.min(max,window.scrollY+step);
+  else if(e.key==="PageUp")to=Math.max(0,window.scrollY-step);
+  if(to===null)return;
+  e.preventDefault();
+  window.scrollTo({top:to,behavior:REDUCED?"auto":"smooth"});
+},{passive:false});
 let _lastY=-1;
 (function watch(){
   const y=window.scrollY||document.documentElement.scrollTop||0;
@@ -93,7 +115,7 @@ function useNarrow(q="(max-width:1180px)"){
 
 /* section scaffolding */
 function Shell({children,style,id,tone="canvas",label}){
-  const bg={canvas:"var(--color-canvas)",midnight:"var(--color-accent-midnight)",card:"var(--color-canvas-card)",light:"var(--color-primary)"}[tone];
+  const bg={canvas:"var(--color-canvas)",midnight:"var(--color-accent-midnight)",card:"#060D1C",light:"var(--color-primary)"}[tone];
   return <section id={id} data-screen-label={label} style={{background:bg,borderBottom:"1px solid var(--color-hairline)",padding:"clamp(64px,10vw,140px) var(--space-xl)",position:"relative",overflow:"hidden",...style}}>
     <div style={{maxWidth:"var(--container-max)",margin:"0 auto",position:"relative"}}>{children}</div>
   </section>;

@@ -45,11 +45,11 @@ function Ecosystem(){
             </svg>
             <div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",width:"46%",aspectRatio:"1"}}>
               <Aura accent={accentKey} size="180%" opacity={.9}/>
-              <div style={{position:"relative",width:"100%",height:"100%",borderRadius:"var(--radius-full)",border:"1px solid var(--border-translucent)",background:"linear-gradient(168deg,rgba(28,30,36,.96),rgba(14,15,19,.96))",display:"grid",placeItems:"center",textAlign:"center",boxShadow:"0 24px 70px -30px rgba(124,58,237,.8)"}}>
+              <div style={{position:"relative",width:"100%",height:"100%",borderRadius:"var(--radius-full)",border:"1px solid var(--border-translucent)",background:"linear-gradient(168deg,rgba(16,28,566,.96),rgba(14,15,19,.96))",display:"grid",placeItems:"center",textAlign:"center",boxShadow:"0 24px 70px -30px rgba(124,58,237,.8)"}}>
                 <div>
-                  <Tile size={38} accent="ai" radius={999} style={{margin:"0 auto 8px"}}><span style={{fontFamily:"var(--font-mono)",fontSize:16,color:"#fff"}}>V</span></Tile>
-                  <div className="vx-display-xs" style={{fontSize:17}}>Velorix AI</div>
-                  <div style={{...mono,fontSize:10,color:a2,marginTop:4}}>{label}</div>
+                  <Tile size={38} accent="ai" radius={999} style={{margin:"0 auto 8px"}}><span style={{fontFamily:"var(--font-mono)",fontSize:16,color:"var(--tile-fg)"}}>V</span></Tile>
+                  <div className="vx-display-xs" style={{fontSize:17}}>VelorixAI</div>
+                  <div style={{...mono,fontSize:10,color:"var(--brand-yellow)",marginTop:4}}>{label}</div>
                 </div>
               </div>
             </div>
@@ -68,7 +68,7 @@ function Ecosystem(){
             <div style={{display:"flex",alignItems:"center",gap:12}}>
               <Tile icon={icon} size={38} accent={accentKey}/>
               <div>
-                <EEy color={a2}>NOW SHOWING · {label}</EEy>
+                <EEy color="var(--brand-yellow)">NOW SHOWING · {label}</EEy>
                 <p className="vx-body-md" style={{color:"var(--color-ink)",margin:"4px 0 0",maxWidth:420}}>{blurb}</p>
               </div>
             </div>

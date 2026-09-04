@@ -1,5 +1,5 @@
 /* ============================================================================
-   GLOBAL FOOTER — one component, used by every page on the site.
+   GLOBAL FOOTER, one component, used by every page on the site.
    Edit the content in site/config.js (footer, contact, links). Editing it once
    updates the landing page, the thank-you page and all three policy pages.
    ============================================================================ */
@@ -15,18 +15,23 @@ function GlobalFooter(){
     {items}
   </div>;
   const link=(l,h,i)=><a key={l} href={h} className="vx-body-sm foot-link" style={{color:"var(--color-body)",textDecoration:"none"}}>{l}</a>;
+  /* A bare #anchor only works on the landing page; from a policy or thank-you
+     page it has to be prefixed with the landing page's URL. */
+  const onHome=/(^|\/)($|index\.html|VelorixAI%20Website\.html|VelorixAI Website\.html)/.test(location.pathname)
+    || decodeURIComponent(location.pathname).endsWith(S.links.home);
+  const sect=h=>h.startsWith("#")&&!onHome?S.links.home+h:h;
 
   return <footer style={{background:"var(--color-canvas)",padding:"clamp(48px,7vw,88px) var(--space-xl) var(--space-2xl)"}}>
     <div style={{maxWidth:"var(--container-max)",margin:"0 auto"}}>
       <div className="foot-grid" style={{display:"grid",gridTemplateColumns:"1.4fr 1fr 1fr 1fr",gap:"clamp(28px,4vw,56px)"}}>
         <div style={{display:"grid",gap:"var(--space-md)",alignContent:"start"}}>
-          <a href="index.html" style={{display:"flex",alignItems:"center",gap:10,textDecoration:"none",color:"var(--color-ink)"}}>
-            <Tile size={28} accent="ai" radius={999}><span style={{fontFamily:"var(--font-mono)",fontSize:12,color:"#fff"}}>V</span></Tile>
+          <a href={S.links.home} style={{display:"flex",alignItems:"center",gap:10,textDecoration:"none",color:"var(--color-ink)"}}>
+            <Tile size={28} accent="ai" radius={999}><span style={{fontFamily:"var(--font-mono)",fontSize:12,color:"var(--tile-fg)"}}>V</span></Tile>
             <span className="vx-display-xs" style={{whiteSpace:"nowrap"}}>{S.brand.name}</span>
           </a>
           <p className="vx-body-sm" style={{color:"var(--color-body-mid)",margin:0,maxWidth:300}}>{S.footer.blurb}</p>
         </div>
-        {col("NAVIGATION",S.footer.nav.map(([l,h])=>link(l,h)))}
+        {col("NAVIGATION",S.footer.nav.map(([l,h])=>link(l,sect(h))))}
         {col("CONTACT",[
           <a key="m" href={"mailto:"+S.contact.email} className="vx-body-sm foot-link" style={{color:"var(--color-body)"}}>{S.contact.email}</a>,
           <a key="w" href={S.contact.whatsapp} target="_blank" rel="noopener" className="vx-body-sm foot-link" style={{color:"var(--color-body)",textDecoration:"none"}}>WhatsApp: {S.contact.phone}</a>,
@@ -34,7 +39,7 @@ function GlobalFooter(){
         {col("LEGAL",LEGAL.map(([l,h])=>link(l,h)))}
       </div>
 
-      {/* Policy bar — the three required links, present on every page */}
+      {/* Policy bar, the three required links, present on every page */}
       <div className="foot-legal" style={{borderTop:"1px solid var(--color-hairline)",marginTop:"clamp(32px,5vw,56px)",paddingTop:"var(--space-xl)",display:"flex",justifyContent:"space-between",gap:"var(--space-lg)",flexWrap:"wrap",alignItems:"center"}}>
         <span style={{...mono,fontSize:10,color:"var(--color-body-mid)"}}>{S.footer.copyright}</span>
         <nav aria-label="Policies" className="foot-legal-links" style={{display:"flex",gap:"var(--space-lg)",flexWrap:"wrap",alignItems:"center"}}>

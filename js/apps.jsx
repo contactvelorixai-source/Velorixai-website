@@ -62,7 +62,7 @@ function UpcomingApps(){
       <GEy color="var(--c-cyan)">UPCOMING APPS</GEy>
       <span style={{...mono,fontSize:10,padding:"3px 10px",borderRadius:999,border:"1px solid var(--border-translucent)",background:"rgba(255,255,255,.04)",color:"var(--color-body-mid)"}}>NOT INCLUDED IN CURRENT COUNTS</span>
     </Reveal>
-    <Reveal delay={60}><Head title="More apps on the way." lead={`New apps are added to ${S.brand.name} over time. These are in build and will join the platform as they ship — your plan grows with them.`} max={640}/></Reveal>
+    <Reveal delay={60}><Head title="More apps on the way." lead={`New apps are added to ${S.brand.name} over time. These are in build and will join the platform as they ship, so your plan grows with them.`} max={640}/></Reveal>
     <div className="upcoming-grid" style={{marginTop:"clamp(24px,3.4vw,40px)",display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"var(--space-lg)"}}>
       {S.upcomingApps.map((a,i)=>
         <Reveal key={a.id} delay={i*70} className="vx-lift" style={{display:"grid",gap:"var(--space-md)",alignContent:"start",padding:"var(--space-lg)",borderRadius:12,border:"1px dashed var(--color-mid)",background:"rgba(255,255,255,.02)","--glow":`color-mix(in oklab, ${ACCENT[a.accent][1]} 45%, transparent)`}}>

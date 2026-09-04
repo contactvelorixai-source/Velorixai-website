@@ -11,7 +11,7 @@ function Founder(){
           <img src={(window.__resources&&window.__resources.founderPhoto)||"https://i.ibb.co/mrhgQGy3/photo-16.jpg"} alt={"Anis Ahmad, Founder of "+window.SITE.brand.name} loading="lazy" style={{display:"block",width:"100%",height:"auto"}}/>
           <span aria-hidden="true" style={{position:"absolute",left:0,right:0,top:0,height:"72%",background:"linear-gradient(180deg,color-mix(in oklab,var(--c-violet) 22%,transparent),transparent 70%)",pointerEvents:"none"}}></span>
           <div style={{padding:"var(--space-lg)",borderTop:"1px solid var(--color-hairline)",display:"flex",alignItems:"center",gap:12}}>
-            <Tile size={34} accent="ai" radius={999}><span style={{fontFamily:"var(--font-mono)",fontSize:14,color:"#fff"}}>A</span></Tile>
+            <Tile size={34} accent="ai" radius={999}><span style={{fontFamily:"var(--font-mono)",fontSize:14,color:"var(--tile-fg)"}}>A</span></Tile>
             <span>
               <span className="vx-display-xs" style={{display:"block",fontSize:17}}>Anis Ahmad</span>
               <span style={{...mono,fontSize:10,color:"var(--c-cyan)"}}>FOUNDER & CEO · {window.SITE.brand.nameCaps}</span>
@@ -21,12 +21,12 @@ function Founder(){
         <div style={{position:"absolute",right:"-8%",bottom:"-10%",width:"72%",transform:`translate3d(0,${-d*-30}px,0)`}}><Notice icon="rocket" label="Built for speed" text="Live in 2 hours" accent="gold"/></div>
       </div>
       <Reveal>
-        <FEy color="var(--c-violet-soft)">WHY WE BUILT {window.SITE.brand.nameCaps}</FEy>
-        <h2 className="vx-display-md" style={{margin:"var(--space-lg) 0 var(--space-xl)",maxWidth:520,textWrap:"pretty"}}>Meet Anis Ahmad — the founder behind {window.SITE.brand.name}</h2>
+        <FEy color="var(--brand-yellow)">WHY WE BUILT {window.SITE.brand.nameCaps}</FEy>
+        <h2 className="vx-display-md" style={{margin:"var(--space-lg) 0 var(--space-xl)",maxWidth:520,textWrap:"pretty"}}>Meet Anis Ahmad, the founder behind {window.SITE.brand.name}</h2>
         <div style={{display:"grid",gap:"var(--space-lg)",maxWidth:560}}>
           {["I spent years watching coaches and agency owners waste time and money. They'd juggle 5-6 tools, pay ₹20K+ monthly, and still lose leads because nothing talked to each other.",
             "One founder told me: \u201CI spend more time managing software than growing my business.\u201D That line changed everything.",
-            "The problem wasn't the tools — they just weren't built for people who move fast. So I built Velorix AI. One dashboard. Website + CRM + WhatsApp + Booking + Payments. All connected. Live in 2 hours.",
+            "The problem wasn't the tools. They just weren't built for people who move fast. So I built VelorixAI. One dashboard. Website + CRM + WhatsApp + Booking + Payments. All connected. Live in 2 hours.",
             "On your free demo, I'll show you exactly how it works for your business. No BS. Just results."].map((t,i)=>
             <p key={i} className="vx-body-md" style={{color:"var(--color-body)",margin:0}}>{t}</p>)}
         </div>
@@ -41,7 +41,7 @@ function VideoSection(){
   const d=(p-0.5)*2;
   return <Shell label="Video">
     <div className="split-2" style={{display:"grid",gridTemplateColumns:".78fr 1.22fr",gap:"clamp(32px,6vw,80px)",alignItems:"center"}}>
-      <Reveal><Head eyebrow="SEE IT IN ACTION" titleClass="vx-display-md" title="Watch a real 2-hour build" lead="This is the actual walkthrough of a guided build session — from kickoff to going live."/></Reveal>
+      <Reveal><Head eyebrow="SEE IT IN ACTION" titleClass="vx-display-md" title="Watch a real 2-hour build" lead="This is the actual walkthrough of a guided build session, from kickoff to going live."/></Reveal>
       <div ref={ref} style={{position:"relative",transform:`translate3d(0,${-d*34}px,0)`,willChange:"transform"}}>
         <Aura accent="ai" size="80%" opacity={.6}/>
         <div className="vx-lift" style={{position:"relative",border:"1px solid var(--color-hairline)",borderRadius:12,overflow:"hidden",background:"linear-gradient(165deg,var(--deep-2),var(--deep))",aspectRatio:"16 / 9","--glow":"color-mix(in oklab, var(--c-violet) 60%, transparent)"}}>
@@ -51,7 +51,7 @@ function VideoSection(){
             : <button onClick={()=>setPlay(true)} aria-label={"Play the "+window.SITE.brand.name+" walkthrough"} style={{position:"absolute",inset:0,width:"100%",height:"100%",background:"radial-gradient(60% 60% at 50% 45%, color-mix(in oklab, var(--c-violet) 40%, transparent), rgba(10,10,10,.55) 72%)",border:"none",cursor:"pointer",display:"grid",placeItems:"center",gap:"var(--space-lg)"}}>
                 <span style={{display:"grid",placeItems:"center",gap:14}}>
                   <Tile icon="play" size={78} accent="ai" radius={999}/>
-                  <span style={{...mono,color:"#fff"}}>PLAY · 2-HOUR BUILD</span>
+                  <span style={{...mono,color:"var(--color-ink)"}}>PLAY · 2-HOUR BUILD</span>
                 </span>
               </button>}
           {play?null:<span aria-hidden="true" style={{position:"absolute",left:16,bottom:16,display:"flex",gap:8}}>

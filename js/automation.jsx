@@ -12,10 +12,10 @@ function Automation(){
       <div style={{maxWidth:"var(--container-max)",margin:"0 auto",width:"100%",position:"relative"}}>
         <div className="split-2" style={{display:"grid",gridTemplateColumns:".85fr 1.15fr",gap:"clamp(32px,6vw,80px)",alignItems:"center"}}>
           <div>
-            <AEy2 color="var(--c-violet-soft)">AI AUTOMATION</AEy2>
+            <AEy2 color="var(--brand-yellow)">AI AUTOMATION</AEy2>
             <h2 className="vx-display-md" style={{margin:"var(--space-lg) 0",textWrap:"pretty"}}>A lead arrives. The system does the rest.</h2>
             <p className="vx-body-lg" style={{color:"var(--color-body)",margin:0,maxWidth:420}}>Smart AI tools find and qualify your ideal clients 24/7 while you focus on delivering results. Email sequences, WhatsApp follow-ups and lead nurturing run on complete autopilot.</p>
-            <div className="vx-lift" style={{marginTop:"var(--space-2xl)",border:"1px solid var(--color-hairline)",borderRadius:12,padding:"var(--space-lg)",background:"linear-gradient(168deg,rgba(28,30,36,.9),rgba(15,16,20,.9))",maxWidth:360,display:narrow?"none":"block","--glow":`color-mix(in oklab, ${a2} 60%, transparent)`}}>
+            <div className="vx-lift" style={{marginTop:"var(--space-2xl)",border:"1px solid var(--color-hairline)",borderRadius:12,padding:"var(--space-lg)",background:"linear-gradient(168deg,rgba(16,28,566,.9),rgba(15,16,20,.9))",maxWidth:360,display:narrow?"none":"block","--glow":`color-mix(in oklab, ${a2} 60%, transparent)`}}>
               {narrow?null:<EventCard i={active}/>}
             </div>
             <div style={{marginTop:"var(--space-xl)",display:"flex",gap:"var(--space-lg)",alignItems:"center"}}>
@@ -29,7 +29,7 @@ function Automation(){
             {FLOW.map(([label,icon,acc,event],i)=>{
               const on=i===active, past=i<active;
               const [c1,c2]=ACCENT[acc];
-              return <div key={label} className={on?"vx-lift":""} style={{position:"relative",display:"flex",alignItems:"center",gap:"var(--space-lg)",padding:"8px 14px 8px 8px",borderRadius:"var(--radius-full)",border:"1px solid "+(on?"var(--border-translucent)":"transparent"),background:on?`linear-gradient(90deg, color-mix(in oklab, ${c1} 18%, transparent), rgba(20,21,25,.5))`:"transparent",opacity:on?1:past?.8:.4,transition:"opacity 260ms,background 300ms"}}>
+              return <div key={label} className={on?"vx-lift":""} style={{position:"relative",display:"flex",alignItems:"center",gap:"var(--space-lg)",padding:"8px 14px 8px 8px",borderRadius:"var(--radius-full)",border:"1px solid "+(on?"var(--border-translucent)":"transparent"),background:on?`linear-gradient(90deg, color-mix(in oklab, ${c1} 18%, transparent), rgba(11,22,48,.5))`:"transparent",opacity:on?1:past?.8:.4,transition:"opacity 260ms,background 300ms"}}>
                 <Tile icon={icon} size={narrow?42:54} accent={acc} glow={on} radius={999} style={{boxShadow:on?`0 12px 40px -10px ${c2}`:"none"}}/>
                 <span style={{display:"grid",gap:2,minWidth:0}}>
                   <span style={{...mono,color:"#fff"}}>{label}</span>

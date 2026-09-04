@@ -1,6 +1,6 @@
 const {Button:B,Icon:I,Eyebrow:Ey}=DS;
 
-/* ---------- the Velorix AI dashboard mock: sidebar + widgets, fully coloured ---------- */
+/* ---------- the VelorixAI dashboard mock: sidebar + widgets, fully coloured ---------- */
 const DASH_NAV=[["Dashboard","layout-dashboard","analytics"],["CRM","users","crm"],["Funnels","filter","funnel"],["Calendar","calendar","calendar"],["Email","mail","email"],["Website","globe","website"],["Payments","credit-card","payments"]];
 
 function DashboardMock({active=1,compact=false}){
@@ -12,7 +12,7 @@ function DashboardMock({active=1,compact=false}){
     <div style={{display:"grid",gridTemplateColumns:compact?"1fr":"188px 1fr"}}>
       {compact?null:<div style={{borderRight:"1px solid var(--color-hairline)",padding:"14px 12px",display:"grid",gap:6,alignContent:"start",background:"rgba(255,255,255,.015)"}}>
         <div style={{display:"flex",alignItems:"center",gap:8,padding:"2px 4px 12px"}}>
-          <Tile size={24} accent="ai" radius={999}><span style={{fontFamily:"var(--font-mono)",fontSize:11,color:"#fff"}}>V</span></Tile>
+          <Tile size={24} accent="ai" radius={999}><span style={{fontFamily:"var(--font-mono)",fontSize:11,color:"var(--tile-fg)"}}>V</span></Tile>
           <span style={{...mono,color:"var(--color-body)",whiteSpace:"nowrap"}}>{window.SITE.brand.nameCaps}</span>
         </div>
         {DASH_NAV.map(([l,ic,acc],i)=>
@@ -31,10 +31,10 @@ function DashboardMock({active=1,compact=false}){
         </div>
         <div ref={ref} style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:10}}>
           {[["New leads",leads.toLocaleString(),"var(--c-cyan)","LAST 30 DAYS"],["Calls booked","8","var(--c-violet)","THIS WEEK"],["Growth","+"+rev+"%","var(--c-gold)","VS LAST MONTH"]].map(([l,v,c,d])=>
-            <div key={l} style={{border:"1px solid var(--color-hairline)",borderRadius:10,padding:"11px 12px",background:`linear-gradient(160deg, color-mix(in oklab, ${c} 16%, transparent), rgba(20,21,25,.6))`}}>
+            <div key={l} style={{border:"1px solid var(--color-hairline)",borderRadius:10,padding:"11px 12px",background:`linear-gradient(160deg, color-mix(in oklab, ${c} 16%, transparent), rgba(11,22,48,.6))`}}>
               <div style={{...mono,fontSize:10,color:"var(--color-body-mid)"}}>{l}</div>
               <div style={{fontFamily:"var(--font-mono)",fontSize:20,letterSpacing:"-0.6px",marginTop:3,color:"#fff"}}>{v}</div>
-              <div style={{...mono,fontSize:9,color:c,marginTop:4}}>{d}</div>
+              <div style={{...mono,fontSize:9,color:"var(--brand-yellow)",marginTop:4}}>{d}</div>
             </div>)}
         </div>
         <div style={{display:"grid",gridTemplateColumns:compact?"1fr":"1.35fr .65fr",gap:10}}>
@@ -97,8 +97,8 @@ function Hero(){
           <Tile icon="sparkles" size={30} accent="ai" radius={999}/>
           <Ey color="var(--color-body)">AI BUSINESS GROWTH PLATFORM</Ey>
         </div>
-        <h1 className="vx-display-xl" style={{margin:0,color:"var(--color-ink)",textWrap:"pretty",...enter(90)}}>Launch Your Coaching or Agency Business in 2&nbsp;Hours — and Keep Growing It.</h1>
-        <p className="vx-body-lg" style={{margin:0,color:"var(--color-body)",maxWidth:680,...enter(200)}}>Everything you need to launch, market, manage and grow your business — powered by AI in one connected platform.</p>
+        <h1 className="vx-display-xl" style={{margin:0,color:"var(--color-ink)",textWrap:"pretty",...enter(90)}}>Launch Your Coaching or Agency Business in 2&nbsp;Hours, and Keep Growing It.</h1>
+        <p className="vx-body-lg" style={{margin:0,color:"var(--color-body)",maxWidth:680,...enter(200)}}>Everything you need to launch, market, manage and grow your business, powered by AI in one connected platform.</p>
         <div style={{display:"flex",gap:"var(--space-md)",flexWrap:"wrap",alignItems:"center",...enter(300)}}>
           <a href="#demo" className="vx-cta">BOOK YOUR FREE DEMO</a>
           <B href="#how-it-works">SEE HOW IT WORKS</B>

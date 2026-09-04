@@ -27,7 +27,7 @@ function Photo({id,placeholder,mask,radius=16,style,ratio,className="",grade="co
 }
 
 /* small caption that keeps demo data honest */
-function DemoNote({children="Illustrative interface — sample data",align="left",light=false}){
+function DemoNote({children="Illustrative interface, sample data",align="left",light=false}){
   return <p style={{...mono,fontSize:9,letterSpacing:"1.4px",color:light?"rgba(10,10,10,.45)":"var(--color-body-mid)",margin:"var(--space-sm) 0 0",textAlign:align}}>{children}</p>;
 }
 

@@ -58,8 +58,8 @@ function Tokens(){
               </div>;
             })}
           </div>
-          {[["MONTHS 1–6",1000,"var(--c-gold)"],["MONTHS 7–12",500,"var(--c-gold-soft)"]].map(([m,v,c])=><TokenBar key={m} month={m} amount={v} max={1500} color={c}/>)}
-          <TokenTotal total={9000} note="Months 1–6: 1,000 per month (6,000). Months 7–12: 500 per month (3,000)."/>
+          {[["MONTHS 1-6",1000,"var(--c-gold)"],["MONTHS 7-12",500,"var(--c-gold-soft)"]].map(([m,v,c])=><TokenBar key={m} month={m} amount={v} max={1500} color={c}/>)}
+          <TokenTotal total={9000} note="Months 1-6: 1,000 per month (6,000). Months 7-12: 500 per month (3,000)."/>
         </TokenCard>
       </Reveal>
     </div>

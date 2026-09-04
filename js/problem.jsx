@@ -48,7 +48,7 @@ function Converge(){
           <div className="vx-lift" style={{position:"relative",padding:"clamp(20px,3vw,32px)",border:"1px solid var(--border-translucent)",borderRadius:12,background:"linear-gradient(168deg,#1b1d22,#111216)"}}>
             <span aria-hidden="true" style={{position:"absolute",top:0,left:0,right:0,height:1,background:"linear-gradient(90deg,transparent,var(--c-cyan),var(--c-violet),transparent)"}}></span>
             <div style={{display:"flex",alignItems:"center",gap:12,justifyContent:"center"}}>
-              <Tile size={40} accent="ai" radius={999}><span style={{fontFamily:"var(--font-mono)",fontSize:17,color:"#fff"}}>V</span></Tile>
+              <Tile size={40} accent="ai" radius={999}><span style={{fontFamily:"var(--font-mono)",fontSize:17,color:"var(--tile-fg)"}}>V</span></Tile>
               <div className="vx-display-sm" style={{letterSpacing:"-0.6px",whiteSpace:"nowrap"}}>{window.SITE.brand.name}</div>
             </div>
             <p className="vx-body-sm" style={{color:"var(--color-body)",margin:"var(--space-md) 0 var(--space-lg)"}}>One login. One dashboard. {window.SITE.apps.length}+ connected apps.</p>
@@ -64,18 +64,18 @@ function Converge(){
 
 function Problem(){
   const bullets=[
-    ["Stop paying for 6–10 separate tools that don’t sync with each other","layers","funnel"],
+    ["Stop paying for 6-10 separate tools that don’t sync with each other","layers","funnel"],
     ["Skip the learning curve of hiring or managing a developer","code","clients"],
     ["Launch offers, funnels and client portals the same day you sign up","rocket","gold"],
-    ["Manage your whole business — leads, clients and payments — from one dashboard","layout-dashboard","crm"],
+    ["Manage your whole business from one dashboard: leads, clients and payments","layout-dashboard","crm"],
     ["Scale to a full agency setup without rebuilding your tech from scratch","trending-up","analytics"],
   ];
   return <React.Fragment>
     <Shell id="platform" label="Problem">
       <div className="split-2" style={{display:"grid",gridTemplateColumns:"1.05fr .95fr",gap:"clamp(32px,6vw,80px)",alignItems:"start"}}>
-        <Reveal><Head eyebrow="THE PROBLEM" title="Your business shouldn’t require 10 different tools." lead="Most coaches and agency owners lose weeks stitching together a website builder, a CRM, an email tool, a course platform and a scheduling app that refuse to talk to each other. Velorix AI replaces that entire stack with one connected system."/></Reveal>
+        <Reveal><Head eyebrow="THE PROBLEM" title="Your business shouldn’t require 10 different tools." lead="Most coaches and agency owners lose weeks stitching together a website builder, a CRM, an email tool, a course platform and a scheduling app that refuse to talk to each other. VelorixAI replaces that entire stack with one connected system."/></Reveal>
         <Reveal delay={120}>
-          <p className="vx-body-lg" style={{color:"var(--color-ink)",margin:"0 0 var(--space-xl)"}}>Everything you need to sell, deliver and support your clients — live in a single login.</p>
+          <p className="vx-body-lg" style={{color:"var(--color-ink)",margin:"0 0 var(--space-xl)"}}>Everything you need to sell, deliver and support your clients, live in a single login.</p>
           <ul style={{listStyle:"none",margin:0,padding:0,display:"grid",gap:"var(--space-md)"}}>
             {bullets.map(([b,ic,acc])=><li key={b} className="vx-lift" style={{display:"flex",gap:14,alignItems:"center",border:"1px solid var(--color-hairline)",borderRadius:10,padding:"var(--space-md) var(--space-lg)",background:"rgba(255,255,255,.02)"}}>
               <Tile icon={ic} size={34} accent={acc}/>

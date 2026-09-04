@@ -1,5 +1,5 @@
 /* ============================================================================
-   VELORIX AI — SITE CONFIGURATION
+   VELORIXAI - SITE CONFIGURATION
    ----------------------------------------------------------------------------
    This is the single source of truth for everything you are likely to change:
    brand name, contact details, links, app data, packages, pricing and media.
@@ -12,7 +12,7 @@ window.SITE = {
 
   /* ---------------------------------------------------------------- BRAND -- */
   brand: {
-    name:      "Velorix AI",              /* used in all visible copy */
+    name:      "VelorixAI",              /* used in all visible copy */
     nameCaps:  "VELORIX AI",              /* used in mono/uppercase labels */
     tagline:   "16+ AI-powered apps. One dashboard.",
     logo:      "images/velorixai-mark.png", /* swap for your own file in images/ */
@@ -29,15 +29,18 @@ window.SITE = {
   /* ----------------------------------------------------------------- LINKS -- */
   links: {
     /* Booking. After the lead form is submitted the visitor lands straight on
-       this Cal.id availability view — no extra click, no profile page. */
+       this Cal.id availability view, no extra click, no profile page. */
     booking:  "https://cal.id/velorixai/demo-call?duration=30",
+    /* The landing page's filename. It is "index.html" on a normal web host;
+       inside this design project the file is named "VelorixAI Website.html". */
+    home:     "index.html",
     social: [
       ["LinkedIn",  "linkedin",  "#"],
       ["Instagram", "instagram", "#"],
       ["YouTube",   "youtube",   "https://youtube.com/shorts/Ol6ReFCvqeQ"],
     ],
     /* Policy pages. Point these anywhere — a file in this folder, or an
-       external URL — and every footer across the site follows. */
+       external URL, and every footer across the site follows. */
     terms:   "terms.html",
     refund:  "refund.html",
     privacy: "privacy.html",
@@ -53,8 +56,8 @@ window.SITE = {
   /* ---------------------------------------------------------------- FOOTER -- */
   footer: {
     blurb:  "AI-powered business growth platform for coaches, consultants and agencies. Based in Bandia, Uttarakhand, India.",
-    copyright: "© 2026 Velorix AI. All rights reserved.",
-    nav: [["Platform","index.html#platform"],["Solutions","index.html#solutions"],["Features","index.html#features"],["Pricing","index.html#pricing"],["FAQ","index.html#faq"]],
+    copyright: "© 2026 VelorixAI. All rights reserved.",
+    nav: [["Platform","#platform"],["Solutions","#solutions"],["Features","#features"],["Pricing","#pricing"],["FAQ","#faq"]],
   },
 
   /* ------------------------------------------------------------------- CTA -- */
@@ -72,7 +75,7 @@ window.SITE = {
   },
 
   /* ============================================================== CURRENT APPS
-     The full Velorix AI app catalogue. Each entry:
+     The full VelorixAI app catalogue. Each entry:
        id, name, description, icon (Lucide icon name), accent (colour family)
      Accent options: crm · email · calendar · funnel · website · analytics ·
                      payments · clients · ai · gold
@@ -81,7 +84,7 @@ window.SITE = {
   apps: [
     {id:"opportunity-finder", name:"Opportunity Finder Pro", desc:"Surface qualified prospects and warm openings before your competitors reach them.",              icon:"radar",           accent:"crm"},
     {id:"funnel-website",     name:"Funnel & Website Builder", desc:"Drag-and-drop pages, funnels and full websites that publish in minutes.",                        icon:"layout-template", accent:"funnel"},
-    {id:"craft-book",         name:"Craft Book AI",          desc:"Turn your expertise into a finished, formatted book — chapter by chapter.",                       icon:"book-open",       accent:"gold"},
+    {id:"craft-book",         name:"Craft Book AI",          desc:"Turn your expertise into a finished, formatted book, chapter by chapter.",                       icon:"book-open",       accent:"gold"},
     {id:"audio-studio",       name:"Audio Studio",           desc:"Studio-grade voiceovers, podcast edits and audio cleanup in the browser.",                        icon:"audio-lines",     accent:"email"},
     {id:"presentation-ai",    name:"Presentation AI",        desc:"Build client-ready decks from a prompt, an outline or an existing document.",                     icon:"presentation",    accent:"analytics"},
     {id:"aeo-blogs",          name:"AEO Blogs Engine",       desc:"Long-form articles written and structured to be cited by AI answer engines.",                      icon:"newspaper",       accent:"website"},
@@ -94,7 +97,7 @@ window.SITE = {
     {id:"humanizer",          name:"Humanizer",              desc:"Rewrite generated copy so it reads in your own voice, not a model's.",                             icon:"pen-line",        accent:"clients"},
     {id:"knowledge-base",     name:"Knowledge Base",         desc:"A searchable home for your offers, SOPs and client documentation.",                                icon:"library",         accent:"crm"},
     {id:"chatbot-engine",     name:"AI Chatbot Engine",      desc:"Train a chatbot on your own content to answer and qualify around the clock.",                      icon:"bot",             accent:"ai"},
-    {id:"contacts",           name:"Contacts",               desc:"Your CRM — every lead, conversation and deal stage in one pipeline.",                              icon:"users",           accent:"crm"},
+    {id:"contacts",           name:"Contacts",               desc:"Your CRM with every lead, conversation and deal stage in one pipeline.",                              icon:"users",           accent:"crm"},
   ],
 
   /* ============================================================= UPCOMING APPS
@@ -130,7 +133,7 @@ window.SITE = {
 
   /* ------------------------------------------------------------- PRICING -- */
   pricing: {
-    range: "₹25,900 – ₹85,900",
+    range: "₹25,900 to ₹85,900",
     note:  "Quarterly and annual plans · Includes all apps in your plan · No hidden fees",
   },
 
@@ -138,7 +141,7 @@ window.SITE = {
   hero: {
     eyebrow:  "AI BUSINESS GROWTH PLATFORM",
     heading:  "Launch your coaching or agency business in 2 hours.",
-    sub:      "Velorix AI puts 16+ AI-powered apps in one dashboard — website, funnels, CRM, chat, content and analytics — so you can launch and run your business without a tech team.",
+    sub:      "VelorixAI puts 16+ AI-powered apps in one dashboard. Website, funnels, CRM, chat, content and analytics, so you can launch and run your business without a tech team.",
     points:   [["16+ apps in one dashboard","layout-grid","crm"],["Go live in about 2 hours","zap","gold"],["No tech team needed","shield-check","analytics"]],
   },
 };

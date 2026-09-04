@@ -7,7 +7,7 @@ function BookMock({scale=1}){
   const d=REDUCED?0:(p-0.5)*2;
   return <div ref={ref} className="book-scene">
     <div className="book-photo" style={{transform:`translate3d(0,${-d*26}px,0)`}}>
-      <Photo id="book-author" ratio="3 / 4" radius={14} placeholder="Author portrait — consultant holding their book"/>
+      <Photo id="book-author" ratio="3 / 4" radius={14} placeholder="Author portrait, consultant holding their book"/>
     </div>
     <div className="book-stage" style={{transform:`translate3d(0,${d*20}px,0)`}}>
       <span aria-hidden="true" className="book-glow"></span>

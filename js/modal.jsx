@@ -118,7 +118,7 @@ function LeadModal(){
   if(!open)return null;
   const busy=state==="sending";
   return <div role="presentation" onMouseDown={e=>{if(e.target===e.currentTarget)close()}} style={{position:"fixed",inset:0,zIndex:200,display:"grid",placeItems:"center",padding:"var(--space-lg)",background:"rgba(8,8,10,.74)",backdropFilter:"blur(6px)",WebkitBackdropFilter:"blur(6px)",animation:REDUCED?"none":"vxFadeIn 220ms ease-out",overflowY:"auto"}}>
-    <div ref={cardRef} role="dialog" aria-modal="true" aria-labelledby="lf-title" style={{position:"relative",width:state==="done"?"min(920px,100%)":"min(540px,100%)",maxHeight:"92vh",overflowY:"auto",borderRadius:16,border:"1px solid var(--border-translucent)",background:"linear-gradient(168deg,#1c1e24,#101115)",boxShadow:"0 40px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.04)",padding:"clamp(22px,3.4vw,34px)",animation:REDUCED?"none":"vxModalIn 300ms cubic-bezier(.4,0,.2,1)"}}>
+    <div ref={cardRef} role="dialog" aria-modal="true" aria-labelledby="lf-title" style={{position:"relative",width:state==="done"?"min(920px,100%)":"min(540px,100%)",maxHeight:"92vh",overflowY:"auto",borderRadius:16,border:"1px solid var(--border-translucent)",background:"linear-gradient(168deg,#101C38,#080F20)",boxShadow:"0 40px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.04)",padding:"clamp(22px,3.4vw,34px)",animation:REDUCED?"none":"vxModalIn 300ms cubic-bezier(.4,0,.2,1)"}}>
       <span aria-hidden="true" style={{position:"absolute",top:0,left:0,right:0,height:1,borderRadius:"16px 16px 0 0",background:"linear-gradient(90deg,transparent,var(--c-cyan),var(--c-violet),transparent)"}}></span>
       <button type="button" onClick={close} aria-label="Close the contact form" style={{position:"absolute",top:14,right:14,width:36,height:36,display:"grid",placeItems:"center",borderRadius:999,border:"1px solid var(--border-translucent)",background:"rgba(255,255,255,.04)",color:"var(--color-ink)",cursor:"pointer"}}><MIc name="x" size={16}/></button>
 
@@ -132,7 +132,7 @@ function LeadModal(){
               </span>
             </div>
             <div className="lf-cal" style={{position:"relative",borderRadius:12,overflow:"hidden",border:"1px solid var(--border-translucent)",background:"#fff",minHeight:520}}>
-              <span aria-hidden="true" className="lf-cal-load" style={{position:"absolute",inset:0,display:"grid",placeItems:"center",background:"linear-gradient(168deg,#1c1e24,#101115)",color:"var(--color-body-mid)",...mono,fontSize:11}}>LOADING AVAILABILITY…</span>
+              <span aria-hidden="true" className="lf-cal-load" style={{position:"absolute",inset:0,display:"grid",placeItems:"center",background:"linear-gradient(168deg,#101C38,#080F20)",color:"var(--color-body-mid)",...mono,fontSize:11}}>LOADING AVAILABILITY…</span>
               {cal?<iframe title="Book your demo" src={cal} loading="eager" style={{position:"relative",width:"100%",height:"min(70vh,620px)",border:"none",display:"block"}}></iframe>:null}
             </div>
             <div style={{display:"flex",gap:"var(--space-md)",alignItems:"center",flexWrap:"wrap"}}>

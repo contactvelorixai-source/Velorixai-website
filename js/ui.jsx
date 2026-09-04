@@ -1,7 +1,7 @@
 const {Eyebrow,Badge}=DS;
 
 /* Cached Lucide renderer. The DS Icon component calls lucide.createIcons(), which rescans the
-   whole document on every mount — with 100+ icons on the page that blocks the main thread.
+   whole document on every mount, with 100+ icons on the page that blocks the main thread.
    This builds the glyph markup once per name and patches DS.Icon so every module benefits. */
 const _icoCache={};
 function _serialize(children){
@@ -30,26 +30,33 @@ DS.Icon=Icon;
 const mono={fontFamily:"var(--font-mono)",fontSize:12,lineHeight:"16px",letterSpacing:"1.2px",textTransform:"uppercase"};
 
 /* per-surface accent pairs — used for icon tiles, auras, charts */
+/* Two families only: deep navy (supporting) and bright yellow (brand + conversion).
+   Navy surfaces carry a yellow second stop so the brand colour reads everywhere. */
 const ACCENT={
-  crm:["var(--c-indigo)","var(--c-violet)"],
-  calendar:["var(--c-violet)","var(--c-indigo)"],
-  email:["var(--c-cyan)","var(--c-blue)"],
-  funnel:["var(--c-gold)","var(--c-violet)"],
-  analytics:["var(--c-teal)","var(--c-cyan)"],
-  website:["var(--c-blue)","var(--c-violet)"],
-  whatsapp:["var(--c-teal)","var(--c-blue)"],
+  crm:["var(--c-navy-3)","var(--c-gold)"],
+  calendar:["var(--c-navy-2)","var(--c-gold)"],
+  email:["var(--c-navy-3)","var(--c-gold-soft)"],
+  funnel:["var(--c-gold)","var(--c-gold-soft)"],
+  analytics:["var(--c-gold)","var(--c-gold-soft)"],
+  website:["var(--c-navy-2)","var(--c-gold)"],
+  whatsapp:["var(--c-navy-3)","var(--c-gold-soft)"],
   payments:["var(--c-gold)","var(--c-gold-soft)"],
-  automation:["var(--c-violet)","var(--c-cyan)"],
-  clients:["var(--c-blue)","var(--c-cyan)"],
-  ai:["var(--c-violet)","var(--c-cyan)"],
+  automation:["var(--c-navy-3)","var(--c-gold)"],
+  clients:["var(--c-navy-2)","var(--c-gold-soft)"],
+  ai:["var(--c-gold)","var(--c-gold-soft)"],
   gold:["var(--c-gold)","var(--c-gold-soft)"],
 };
 
-/* dimensional icon tile — the site's premium icon primitive */
+/* Accent keys whose tile is bright yellow. Those need a BLACK glyph, the same
+   polarity as the yellow CTA; navy tiles keep a light glyph. */
+const YELLOW_TILES=new Set(["funnel","analytics","payments","ai","gold"]);
+
+/* dimensional icon tile, the site's premium icon primitive */
 function Tile({icon,size=44,accent="ai",glow=true,radius,style,children}){
   const [a,b]=ACCENT[accent]||ACCENT.ai;
-  return <span className={"vx-tile"+(glow?" vx-tile-glow":"")} style={{"--t1":a,"--t2":b,width:size,height:size,borderRadius:radius||Math.round(size*0.32),flexShrink:0,...style}}>
-    {children||<Icon name={icon} size={Math.round(size*0.44)} color="#ffffff"/>}
+  const fg=YELLOW_TILES.has(accent)?"#000000":"#F5F5F5";
+  return <span className={"vx-tile"+(glow?" vx-tile-glow":"")} style={{"--t1":a,"--t2":b,"--tile-fg":fg,color:fg,width:size,height:size,borderRadius:radius||Math.round(size*0.32),flexShrink:0,...style}}>
+    {children||<Icon name={icon} size={Math.round(size*0.44)} color={fg}/>}
   </span>;
 }
 
@@ -60,7 +67,7 @@ function Aura({accent="ai",size="130%",opacity=.5,style}){
 
 function Panel({label,icon,accent="ai",children,style,foot,className=""}){
   const [a,b]=ACCENT[accent]||ACCENT.ai;
-  return <div className={"vx-lift "+className} style={{position:"relative",background:"linear-gradient(180deg,#191919,#141519)",border:"1px solid var(--color-hairline)",borderRadius:"var(--radius-sm)",overflow:"hidden",color:"var(--color-ink)","--glow":`color-mix(in oklab, ${b} 60%, transparent)`,...style}}>
+  return <div className={"vx-lift "+className} style={{position:"relative",background:"linear-gradient(180deg,#101C38,#0B1630)",border:"1px solid var(--color-hairline)",borderRadius:"var(--radius-sm)",overflow:"hidden",color:"var(--color-ink)","--glow":`color-mix(in oklab, ${b} 60%, transparent)`,...style}}>
     <span aria-hidden="true" style={{position:"absolute",top:0,left:0,right:0,height:1,background:`linear-gradient(90deg,transparent,${a},${b},transparent)`,opacity:.85}}></span>
     <div style={{display:"flex",alignItems:"center",gap:"var(--space-sm)",padding:"11px 14px",borderBottom:"1px solid var(--color-hairline)"}}>
       <Tile icon={icon} size={24} accent={accent} glow={false}/>
@@ -89,7 +96,7 @@ function CRMPanel({t=0}){
     {leads.map(([n,a,s,c],i)=>
       <div key={n} style={{...rowStyle,background:i===live?`color-mix(in oklab, ${c} 10%, transparent)`:"transparent",transition:"background 400ms"}}>
         <span style={{display:"flex",alignItems:"center",gap:10}}>
-          <span style={{width:26,height:26,borderRadius:"var(--radius-full)",background:`linear-gradient(145deg, ${c}, color-mix(in oklab, ${c} 40%, #0a0a0a))`,display:"inline-flex",alignItems:"center",justifyContent:"center",fontSize:11,fontFamily:"var(--font-mono)",color:"#fff"}}>{n[0]}</span>
+          <span style={{width:26,height:26,borderRadius:"var(--radius-full)",background:`linear-gradient(145deg, ${c}, color-mix(in oklab, ${c} 45%, #060D1C))`,display:"inline-flex",alignItems:"center",justifyContent:"center",fontSize:11,fontFamily:"var(--font-mono)",color:"#fff"}}>{n[0]}</span>
           <span className="vx-body-sm">{n}</span>
         </span>
         <span className="vx-body-sm" style={{color:"var(--color-body-mid)"}}>{a}</span>
@@ -211,7 +218,7 @@ function WebsitePanel(){
 
 function Notice({icon,label,text,accent="ai",style}){
   const [a,b]=ACCENT[accent]||ACCENT.ai;
-  return <div className="vx-lift" style={{display:"flex",gap:10,alignItems:"center",padding:"9px 16px 9px 10px",background:"linear-gradient(180deg,rgba(25,25,25,.96),rgba(16,17,20,.96))",border:"1px solid var(--color-hairline)",borderRadius:"var(--radius-full)",whiteSpace:"nowrap","--glow":`color-mix(in oklab, ${b} 60%, transparent)`,...style}}>
+  return <div className="vx-lift" style={{display:"flex",gap:10,alignItems:"center",padding:"9px 16px 9px 10px",background:"linear-gradient(180deg,rgba(16,28,56,.96),rgba(6,12,26,.96))",border:"1px solid var(--color-hairline)",borderRadius:"var(--radius-full)",whiteSpace:"nowrap","--glow":`color-mix(in oklab, ${b} 60%, transparent)`,...style}}>
     <Tile icon={icon} size={30} accent={accent} radius={999}/>
     <span style={{display:"grid"}}>
       <span style={{...mono,fontSize:10,color:"var(--color-body-mid)"}}>{label}</span>

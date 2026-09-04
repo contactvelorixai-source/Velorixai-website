@@ -1,6 +1,6 @@
 const {Button:B,Icon:I,Eyebrow:Ey}=DS;
 
-/* Official Velorix AI mark, keyed off its plate so it sits on any surface. */
+/* Official VelorixAI mark, keyed off its plate so it sits on any surface. */
 function Wordmark({size=34}){
   return <span style={{display:"inline-flex",alignItems:"center",gap:9}}>
     <img src={(window.__resources&&window.__resources.logoMark)||window.SITE.brand.logo} alt="" width={Math.round(size*1.37)} height={size} style={{display:"block",height:size,width:"auto",filter:"drop-shadow(0 0 12px color-mix(in oklab, var(--c-violet) 45%, transparent))"}}/>
@@ -36,7 +36,7 @@ function Nav(){
   };
   return <header style={{position:"sticky",top:0,zIndex:120,background:solid?"rgba(10,10,10,0.9)":"transparent",backdropFilter:solid?"blur(10px)":"none",WebkitBackdropFilter:solid?"blur(10px)":"none",borderBottom:"1px solid "+(solid?"var(--color-hairline)":"transparent"),boxShadow:solid?"0 12px 40px -30px rgba(0,0,0,.9)":"none",transition:"background 220ms cubic-bezier(.4,0,.2,1),border-color 220ms,box-shadow 220ms"}}>
     <div style={{maxWidth:"var(--container-max)",margin:"0 auto",padding:"10px var(--space-xl)",display:"flex",alignItems:"center",gap:"clamp(12px,2vw,28px)",flexWrap:"nowrap"}}>
-      <a href="#top" onClick={go("top")} aria-label={window.SITE.brand.name+" — home"} style={{textDecoration:"none",color:"var(--color-ink)",flexShrink:0}}><Wordmark/></a>
+      <a href="#top" onClick={go("top")} aria-label={window.SITE.brand.name+", home"} style={{textDecoration:"none",color:"var(--color-ink)",flexShrink:0}}><Wordmark/></a>
       <nav className="nav-links" aria-label="Main" style={{display:"flex",gap:"clamp(12px,1.6vw,26px)",marginLeft:"auto",alignItems:"center",flexWrap:"nowrap"}}>
         {NAV.map(([l,id])=>{
           const on=active===id;
