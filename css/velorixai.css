@@ -1,6 +1,7 @@
 /* ==========================================================================
-   Velorix AI — site stylesheet
-   Design tokens live in css/tokens/ and css/design-system.css.
+   VelorixAI, site stylesheet
+   The LOCKED brand colour system lives in the :root block below.
+   #FFD700 yellow / #0B1630 navy / #000000 black / #F5F5F5 / #A7A7A7
    ========================================================================== */
 
 /* ---------- BASE + GLOBAL UI ---------- */
@@ -19,19 +20,19 @@ a{color:var(--color-ink)}a:hover{color:var(--color-ink-hover)}
 .hero-float.f5{left:2%;bottom:38%}
 .hero-float.f6{right:2%;top:40%}
 @media (max-width:1320px){.hero-float.f1,.hero-float.f2{display:none}.hero-float.f3{bottom:2%}.hero-float.f5{left:0;bottom:42%}}
-.vx-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:999px;background:linear-gradient(120deg,var(--c-indigo),var(--c-violet) 55%,var(--c-cyan));color:#fff!important;text-decoration:none;font-size:14px;line-height:20px;letter-spacing:.2px;border:1px solid rgba(255,255,255,.22);box-shadow:0 14px 40px -16px var(--c-violet);transition:transform 200ms,box-shadow 240ms}
-.vx-cta:hover{transform:translateY(-2px);box-shadow:0 18px 52px -14px var(--c-violet)}
+.vx-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:999px;background:var(--brand-yellow);color:#000!important;text-decoration:none;font-size:14px;line-height:20px;letter-spacing:.2px;border:1px solid rgba(255,255,255,.22);box-shadow:0 14px 40px -16px var(--c-violet);transition:transform 200ms,box-shadow 240ms}
+.vx-cta:hover{transform:translateY(-2px);background:var(--brand-yellow-soft);box-shadow:0 18px 52px -14px rgba(255,215,0,.5)}
 .vx-cta-dark{background:var(--color-on-primary);border-color:var(--color-on-primary);box-shadow:0 12px 30px -16px rgba(10,10,10,.8)}
 @keyframes vxFadeIn{from{opacity:0}to{opacity:1}}
 @keyframes vxPop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.06);opacity:1}100%{transform:scale(1)}}
 @keyframes vxSpin{to{transform:rotate(360deg)}}
-.lf-spin{width:13px;height:13px;border-radius:99px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;animation:vxSpin 700ms linear infinite;display:inline-block;margin-right:8px}
+.lf-spin{width:13px;height:13px;border-radius:99px;border:2px solid rgba(0,0,0,.3);border-top-color:#000;animation:vxSpin 700ms linear infinite;display:inline-block;margin-right:8px}
 .lf-send:disabled{cursor:progress}
 .vx-cta:disabled{transform:none!important}
 @keyframes vxModalIn{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
-.vx-cta-ghost{background:rgba(255,255,255,.05);border-color:var(--border-translucent);box-shadow:none;color:var(--color-ink)!important}
-.vx-cta-ghost:hover{background:rgba(255,255,255,.09);box-shadow:none}
-.vx-cta:focus-visible,.nav-link:focus-visible,.nav-burger:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid var(--c-cyan);outline-offset:2px}
+.vx-cta-ghost{background:transparent;border-color:var(--brand-yellow)!important;box-shadow:none;color:var(--brand-yellow)!important}
+.vx-cta-ghost:hover{background:rgba(255,215,0,.12);box-shadow:none}
+.vx-cta:focus-visible,.nav-link:focus-visible,.nav-burger:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid var(--brand-yellow);outline-offset:2px}
 @media (max-width:1180px){
   .hero-float.f3,.hero-float.f4,.hero-float.f6{display:none}
   .price-range,.annual-tokens{grid-template-columns:1fr!important;gap:var(--space-lg)!important}
@@ -63,25 +64,52 @@ a{color:var(--color-ink)}a:hover{color:var(--color-ink-hover)}
 }
 @media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
 
-/* ---------- SECTIONS, PHOTO SCENES, PRODUCT MOCKUPS, RESPONSIVE ---------- */
-/* Velorix AI site layer — colour, light and motion built on top of the design-system tokens.
-   Accent hues are derived from the DS accent palette (dusk, breeze, sunset, twilight) and
-   extended in oklch so the family stays harmonious.
-   Paint budget: no blend modes, no filters on repeated elements — the page carries 100+ tiles. */
+/* ---------- BRAND PALETTE, SECTIONS, SCENES, RESPONSIVE ---------- */
+/* VelorixAI site layer — the LOCKED brand colour system.
+   #FFD700 bright yellow  brand identity, attention, conversion
+   #0B1630 deep navy      supporting technology colour and depth
+   #000000 black          foundation
+   #F5F5F5 / #A7A7A7      primary / secondary text
+   Change a value here and it updates the entire site. */
 :root{
-  --c-violet:var(--color-accent-dusk);
-  --c-violet-soft:var(--color-accent-twilight);
-  --c-indigo:#4f46e5;
-  --c-blue:#3b82f6;
-  --c-cyan:#22d3ee;
-  --c-teal:#2dd4bf;
-  --c-gold:var(--color-accent-sunset);
-  --c-gold-soft:var(--color-accent-sunset-soft);
-  --deep:var(--color-accent-midnight);
-  --deep-2:#141a2e;
+  /* --- locked palette --- */
+  --brand-yellow:#FFD700;
+  --brand-yellow-soft:#FFE566;
+  --brand-navy:#0B1630;
+  --brand-black:#000000;
+  --brand-text:#F5F5F5;
+  --brand-text-2:#A7A7A7;
+
+  /* --- foundation overrides (design-system tokens repointed) --- */
+  --color-canvas:#000000;
+  --color-canvas-card:#0B1630;
+  --color-canvas-soft:#101C38;
+  --color-ink:#F5F5F5;
+  --color-ink-hover:#FFD700;
+  --color-body:#F5F5F5;
+  --color-body-mid:#A7A7A7;
+  --color-hairline:#1B2A4A;
+  --color-mid:#22355C;
+  --border-translucent:rgba(255,215,0,.22);
+  --border-translucent-strong:rgba(255,215,0,.45);
+
+  /* --- accent ramp: one yellow, one navy family, nothing else --- */
+  --c-gold:#FFD700;
+  --c-gold-soft:#FFE566;
+  --c-cyan:#FFD700;          /* highlights, live dots, focus rings */
+  --c-teal:#FFE566;          /* secondary data series */
+  --c-navy:#0B1630;
+  --c-navy-2:#16233F;
+  --c-navy-3:#22355C;
+  --c-violet:#22355C;        /* supporting navy (was violet) */
+  --c-violet-soft:#33497A;
+  --c-indigo:#16233F;
+  --c-blue:#1E3054;
+  --deep:#0B1630;
+  --deep-2:#101C38;
 }
 .vx-lift{transition:transform 240ms cubic-bezier(.4,0,.2,1),border-color 200ms,box-shadow 240ms}
-.vx-lift:hover{transform:translateY(-4px);border-color:var(--border-translucent-strong)!important;box-shadow:0 18px 60px -30px var(--glow,rgba(124,58,237,.6))}
+.vx-lift:hover{transform:translateY(-4px);border-color:var(--border-translucent-strong)!important;box-shadow:0 18px 60px -30px var(--glow,rgba(255,215,0,.4))}
 .vx-tile{position:relative;display:grid;place-items:center;border-radius:14px;transition:transform 260ms cubic-bezier(.4,0,.2,1),box-shadow 260ms;background-image:linear-gradient(150deg,var(--t1),var(--t2));box-shadow:inset 0 1px 0 rgba(255,255,255,.28)}
 .vx-tile-glow{box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 8px 22px -12px var(--t2)}
 .vx-tile:hover{transform:translateY(-3px) scale(1.04)}
@@ -97,7 +125,7 @@ a{color:var(--color-ink)}a:hover{color:var(--color-ink-hover)}
 
 /* --- editorial photo scenes --- */
 image-slot{display:block;width:100%;height:100%}
-.vx-moment{background:linear-gradient(178deg,rgba(24,25,29,.94),rgba(14,15,18,.94));border:1px solid var(--border-translucent);border-radius:13px;padding:13px 15px;box-shadow:0 22px 60px -34px rgba(0,0,0,.95)}
+.vx-moment{background:linear-gradient(178deg,rgba(16,28,56,.96),rgba(6,12,26,.96));border:1px solid var(--border-translucent);border-radius:13px;padding:13px 15px;box-shadow:0 22px 60px -34px rgba(0,0,0,.95)}
 .scene-plate{position:absolute;left:clamp(20px,4vw,56px);top:0;bottom:0;display:grid;align-content:center;width:min(46%,470px);padding-right:var(--space-lg);pointer-events:none}
 .scene-plate a,.scene-plate button{pointer-events:auto}
 .scene-ui{position:absolute;z-index:4;will-change:transform}
@@ -118,9 +146,9 @@ image-slot{display:block;width:100%;height:100%}
 /* --- authority book scene --- */
 .book-scene{position:relative;display:grid;grid-template-columns:.78fr 1fr;gap:clamp(12px,2vw,24px);align-items:center;padding:clamp(18px,3vw,30px)}
 .book-stage{position:relative;perspective:1400px;display:grid;place-items:center}
-.book-glow{position:absolute;width:78%;aspect-ratio:1;border-radius:999px;background:radial-gradient(circle,color-mix(in oklab,var(--c-gold) 34%,transparent),transparent 66%)}
+.book-glow{position:absolute;width:78%;aspect-ratio:1;border-radius:999px;background:radial-gradient(circle,rgba(255,215,0,.3),transparent 66%)}
 .book-page{position:absolute;width:172px;aspect-ratio:3 / 4.3;border-radius:6px 10px 10px 6px;background:linear-gradient(150deg,rgba(255,255,255,.15),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.13)}
-.book-cover{position:relative;width:172px;aspect-ratio:3 / 4.3;transform:rotateY(-16deg) rotateX(5deg);background:linear-gradient(150deg,#1b2440,#0d1726 55%,#161a2c);border:1px solid rgba(255,255,255,.15);border-radius:4px 10px 10px 4px;padding:19px 16px;display:grid;align-content:space-between;box-shadow:26px 32px 66px -22px rgba(0,0,0,.92),inset 0 0 38px rgba(124,58,237,.2)}
+.book-cover{position:relative;width:172px;aspect-ratio:3 / 4.3;transform:rotateY(-16deg) rotateX(5deg);background:linear-gradient(150deg,#16233F,#0B1630 55%,#101C38);border:1px solid rgba(255,255,255,.15);border-radius:4px 10px 10px 4px;padding:19px 16px;display:grid;align-content:space-between;box-shadow:26px 32px 66px -22px rgba(0,0,0,.92),inset 0 0 38px rgba(124,58,237,.2)}
 .book-spine{position:absolute;left:0;top:0;bottom:0;width:12px;background:linear-gradient(90deg,rgba(0,0,0,.6),rgba(255,255,255,.09));border-right:1px solid rgba(255,255,255,.15)}
 .book-sheen{position:absolute;inset:0;border-radius:inherit;background:linear-gradient(115deg,rgba(255,255,255,.2),transparent 42%);pointer-events:none}
 /* --- free website scene --- */
@@ -129,11 +157,11 @@ image-slot{display:block;width:100%;height:100%}
 .site-browser{position:relative;margin:-18% auto 0;width:min(90%,320px);border:1px solid var(--color-hairline);border-radius:12px;overflow:hidden;background:linear-gradient(165deg,var(--deep-2),var(--deep));box-shadow:0 30px 80px -40px rgba(0,0,0,.95)}
 .browser-chrome{display:flex;align-items:center;gap:9px;padding:8px 11px;border-bottom:1px solid rgba(255,255,255,.08)}
 .browser-body{padding:18px 16px;display:grid;gap:9px;position:relative}
-.browser-wash{position:absolute;right:-26px;top:-26px;width:150px;height:150px;border-radius:999px;background:radial-gradient(circle,color-mix(in oklab,var(--c-violet) 42%,transparent),transparent 68%)}
+.browser-wash{position:absolute;right:-26px;top:-26px;width:150px;height:150px;border-radius:999px;background:radial-gradient(circle,rgba(255,215,0,.24),transparent 68%)}
 .site-phone{position:absolute;right:6%;bottom:6%;width:104px;border:1px solid var(--color-hairline);border-radius:15px;background:linear-gradient(165deg,var(--deep-2),var(--deep));padding:8px;box-shadow:0 22px 60px -30px rgba(0,0,0,.95)}
 /* --- the human problem scene --- */
 .chaos-scene{position:relative;margin-top:clamp(32px,5vw,64px)}
-.chaos-tool{position:absolute;z-index:3;display:flex;align-items:center;gap:8px;padding:6px 13px 6px 6px;border-radius:999px;border:1px solid var(--border-translucent);background:linear-gradient(180deg,rgba(25,26,30,.94),rgba(14,15,18,.94));white-space:nowrap;box-shadow:0 18px 50px -30px rgba(0,0,0,.9)}
+.chaos-tool{position:absolute;z-index:3;display:flex;align-items:center;gap:8px;padding:6px 13px 6px 6px;border-radius:999px;border:1px solid var(--border-translucent);background:linear-gradient(180deg,rgba(16,28,56,.96),rgba(6,12,26,.96));white-space:nowrap;box-shadow:0 18px 50px -30px rgba(0,0,0,.9)}
 @media (max-width:1180px){
   .scene-offset,.scene-portrait,.scene-diptych,.steps-wrap,.apps-wrap,.book-scene{grid-template-columns:1fr!important}
   .scene-portrait .scene-col-text{order:1}.scene-portrait .scene-col-photo{order:2}
